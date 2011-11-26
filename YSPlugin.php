@@ -179,7 +179,7 @@ class YSPlugin extends YSLifeCycle {
 
                 if ('true' != $donated) {
                     ?>
-                <td width="20%" align="left" valign="center">
+                <td width="50%" align="left" valign="center">
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                         <input type="hidden" name="cmd" value="_s-xclick">
                         <input type="hidden" name="hosted_button_id" value="F3FF6MP948QPW">
@@ -190,20 +190,10 @@ class YSPlugin extends YSLifeCycle {
                              height="1">
                     </form>
                 </td>
-                <td width="70%" align="center">
-                    <script type="text/javascript">
-                        var psHost = (("https:" == document.location.protocol) ? "https://" : "http://");
-                        document.write(unescape("%3Cscript src='" + psHost + "pluginsponsors.com/direct/spsn/display.php?client=community-yard-sale&spot='type='text/javascript'%3E%3C/script%3E"));
-                    </script>
-                    <a target="_privacy"
-                       href="http://pluginsponsors.com/privacy.html">
-                        <span style="font-size: x-small;"><?php _e('Privacy Policy', 'yardsale') ?></span>
-                    </a>
-                </td>
                 <?php
                 }
                 ?>
-                <td width="10%" align="center" valign="center">
+                <td width="50%" align="center" valign="center">
                     <a target="_support"
                        href="http://wordpress.org/tags/community-yard-sale">
                         <strong><?php _e('Plugin Support', 'yardsale') ?></strong>
