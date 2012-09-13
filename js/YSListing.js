@@ -120,7 +120,7 @@ function YSListing(centerLat, centerLng, zoom, markerDirUrl, jsonUrl) {
 
                     jQuery('#yardsale_table > tbody').append(
                             '<tr onclick="ys.scrollOnClick=false;ys.toggleHighlight(this)"><td><image src="' + ys.getMarkerLink(markerNum) + '" alt="' + markerNum + '"/></td><td class="addrcol">' +
-                                    shortAddr + '</td><td class="listingcol"><a name="marker' + markerNum + '"></a>' + listing + '</td></tr>');
+                                    shortAddr + '</td><td class="listingcol"><div><a name="marker' + markerNum + '"></a>' + listing + '</div></td></tr>');
                     // Put marker on map
                     try {
                         var markerHtml = '<span style="font-size: small;">' + listing + '</span>';
