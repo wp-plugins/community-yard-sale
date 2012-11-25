@@ -62,6 +62,9 @@ both tags so that they reference the same data.
 
 == Changelog ==
 
+= 1.0.3 =
+Limits size of any entry cell being displayed. Makes cell scrollable.
+
 = 1.0.1 =
 Minor tweaks
 
