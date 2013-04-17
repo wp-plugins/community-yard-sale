@@ -328,22 +328,22 @@ class YSPlugin extends YSLifeCycle {
 
     public function outputShortCodeBuilder() {
         ?>
-    <h3><?php _e('Fill in the options below to generate short codes to put on your pages', 'yardsale') ?></h3>
+    <h3><?php _e('Fill in the options in the tabs below to generate short codes to put on your pages', 'yardsale') ?></h3>
     <p>
-        <?php _e('Place the [yardsale-form] short code on a page to display the yard sale entry form', 'yardsale') ?>
+        <?php _e('Place the <strong>[yardsale-form]</strong> short code on a page to display the yard sale entry form', 'yardsale') ?>
     </p>
 
     <div id="sc_form_result_div">
         <pre style="white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: pre-wrap; word-wrap: break-word;"><code
-                id="sc_form_result_text">[yardsale-form]</code></pre>
+                id="sc_form_result_text"  style="background-color: yellow; font-weight: bold;">[yardsale-form]</code></pre>
     </div>
 
     <p>
-        <?php _e('Place the [yardsale-listing] short code on a <strong>different page</strong> to display the yard sale listings', 'yardsale') ?>
+        <?php _e('Place the <strong>[yardsale-listing]</strong> short code on a <strong>different page</strong> to display the yard sale listings', 'yardsale') ?>
     </p>
     <div id="sc_listing_result_div">
         <pre style="white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: pre-wrap; word-wrap: break-word;"><code
-                id="sc_listing_result_text">[yardsale-listing]</code></pre>
+                id="sc_listing_result_text" style="background-color: yellow; font-weight: bold;">[yardsale-listing]</code></pre>
     </div>
 
     <div id="validations_div">
@@ -356,157 +356,154 @@ class YSPlugin extends YSLifeCycle {
     <script type="text/javascript">
         jQuery(function() {
             try {
-                jQuery("#accordion").accordion();
+                jQuery("#yardsale_shortcode_tabs").tabs();
             }
             catch (ex) {
             }
         });
     </script>
 
-    <div id="accordion">
-
-        <h3><a href="#"><?php _e('Map Location', 'yardsale') ?></a></h3>
-
-        <div>
-            <?php
-            // The White House as a generic starting location
-            $centerLat = '38.897678';
-            $centerLng = '-77.036517';
-            $zoom = '14';
-            ?>
-            <script type="text/javascript">
-                var scMap = new ScGoogleMap();
-                scMap.initGoogleMap(<?php echo $centerLat ?>, <?php echo $centerLng ?>, <?php echo $zoom ?>);
-            </script>
-
-            <p><?php _e('Center The Google Map to display your community yard sale area.', 'yardsale') ?></p>
+    <div class="yardsale_shortcode_config">
+        <div id="yardsale_shortcode_tabs">
             <ul>
-                <li><?php _e('Type in an address', 'yardsale'); ?></li>
-                <li><?php _e('Click on the map to adjust the center', 'yardsale'); ?></li>
+                <li><a href="#yardsale_shortcode_tab-1"><?php _e('Map Location', 'yardsale') ?></a></li>
+                <li><a href="#yardsale_shortcode_tab-2"><?php _e('Map Size', 'yardsale') ?></a></li>
+                <li><a href="#yardsale_shortcode_tab-3"><?php _e('Event Tag', 'yardsale') ?></a></li>
+                <li><a href="#yardsale_shortcode_tab-4"><?php _e('Input Form Pick Lists (Optional)', 'yardsale') ?></a></li>
+                <li><a href="#yardsale_shortcode_tab-5"><?php _e('Input Form Defaults (Optional)', 'yardsale') ?></a></li>
+                <li><a href="#yardsale_shortcode_tab-6"><?php _e('Hide On Print (Optional)', 'yardsale') ?></a></li>
             </ul>
-            <p>
-                <label for="sc_address"><?php _e('Address', 'yardsale') ?></label>
-                <input id="sc_address" type="text" size="50"
-                       onchange="scMap.centerMapOnAddress(jQuery('#sc_address').val())"/>
-                <button onclick="scMap.centerMapOnAddress(jQuery('#sc_address').val())"><?php _e('Center Map', 'yardsale') ?></button>
-            </p>
+            <div id="yardsale_shortcode_tab-1">
+                <?php
+                // The White House as a generic starting location
+                $centerLat = '38.897678';
+                $centerLng = '-77.036517';
+                $zoom = '14';
+                ?>
+                <script type="text/javascript">
+                    var scMap = new ScGoogleMap();
+                    scMap.initGoogleMap(<?php echo $centerLat ?>, <?php echo $centerLng ?>, <?php echo $zoom ?>);
+                </script>
 
-            <div id="map_div">
-                <div id="map_canvas" style="height: 400px; width: 400px"></div>
+                <p><?php _e('Center The Google Map to display your community yard sale area.', 'yardsale') ?></p>
+                <ul>
+                    <li><?php _e('Type in an address', 'yardsale'); ?></li>
+                    <li><?php _e('Click on the map to adjust the center', 'yardsale'); ?></li>
+                </ul>
+                <p>
+                    <label for="sc_address"><?php _e('Address', 'yardsale') ?></label>
+                    <input id="sc_address" type="text" size="50"
+                           onchange="scMap.centerMapOnAddress(jQuery('#sc_address').val())"/>
+                    <button onclick="scMap.centerMapOnAddress(jQuery('#sc_address').val())"><?php _e('Center Map', 'yardsale') ?></button>
+                </p>
+
+                <div id="map_div">
+                    <div id="map_canvas" style="height: 400px; width: 400px"></div>
+                </div>
+
+
+                <p>
+                    <label for="sc_lat"><?php _e('Latitude', 'yardsale') ?></label>
+                    <input id="sc_lat" type="text" size="20" value="<?php echo $centerLat ?>" onkeyup="ysCreateShortCodes()"
+                           onchange="scMap.centerMapOnLatLng()"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="sc_lng"><?php _e('Longitude', 'yardsale') ?></label>
+                    <input id="sc_lng" type="text" size="20" value="<?php echo $centerLng ?>" onkeyup="ysCreateShortCodes()"
+                           onchange="scMap.centerMapOnLatLng()"/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <label for="sc_zoom"><?php _e('Zoom', 'yardsale') ?></label>
+                    <input id="sc_zoom" type="text" size="5" value="<?php echo $zoom ?>" onchange="scMap.zoomMap()"/>
+                </p>
             </div>
 
+            <div id="yardsale_shortcode_tab-2">
+                <p><?php _e('Set the Google Map height and width. Use pixels or percentage width.', 'yardsale') ?></p>
+                <ul>
+                    <li><?php _e('Warning: if both height and width are percentages then the map may not display', 'yardsale'); ?></li>
+                    <li><?php _e('Setting a height in pixels and a width=100% is a common choice', 'yardsale'); ?></li>
+                    <li><?php _e('Note: You can tweak these values later directly in the short code after you have put the short code on a page and looked at it', 'yardsale'); ?></li>
+                </ul>
 
-            <p>
-                <label for="sc_lat"><?php _e('Latitude', 'yardsale') ?></label>
-                <input id="sc_lat" type="text" size="20" value="<?php echo $centerLat ?>" onkeyup="ysCreateShortCodes()"
-                       onchange="scMap.centerMapOnLatLng()"/>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <label for="sc_lng"><?php _e('Longitude', 'yardsale') ?></label>
-                <input id="sc_lng" type="text" size="20" value="<?php echo $centerLng ?>" onkeyup="ysCreateShortCodes()"
-                       onchange="scMap.centerMapOnLatLng()"/>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <label for="sc_zoom"><?php _e('Zoom', 'yardsale') ?></label>
-                <input id="sc_zoom" type="text" size="5" value="<?php echo $zoom ?>" onchange="scMap.zoomMap()"/>
-            </p>
-        </div>
+                <table cellspacing="10px">
+                    <tr>
+                        <td><label for="sc_form_map_height"><?php _e('Form Map Height', 'yardsale') ?></label></td>
+                        <td><input id="sc_form_map_height" type="text" size="10" value="500px"
+                                   onkeyup="ysCreateShortCodes()"/></td>
+                        <td><label for="sc_form_map_width"><?php _e('Form Map Width', 'yardsale') ?></label></td>
+                        <td><input id="sc_form_map_width" type="text" size="10" value="100%"
+                                   onkeyup="ysCreateShortCodes()"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sc_listing_map_height"><?php _e('Listing Map Height', 'yardsale') ?></label></td>
+                        <td><input id="sc_listing_map_height" type="text" size="10" value="500px"
+                                   onkeyup="ysCreateShortCodes()"/></td>
+                        <td><label for="sc_listing_map_width"><?php _e('Listing Map Width', 'yardsale') ?></label></td>
+                        <td><input id="sc_listing_map_width" type="text" size="10" value="100%"
+                                   onkeyup="ysCreateShortCodes()"/></td>
+                    </tr>
+                </table>
+            </div>
 
-        <h3><a href="#"><?php _e('Event Tag', 'yardsale') ?></a></h3>
+            <div id="yardsale_shortcode_tab-3">
+                <p><?php _e('Give your event a unique tag. This is used to distinguish different community yard sale events. Your pair of short codes will need to have the same event tag.', 'yardsale') ?></p>
 
-        <div>
-            <p><?php _e('Give your event a unique tag. This is used to distinguish different community yard sale events. Your pair of short codes will need to have the same event tag.', 'yardsale') ?></p>
+                <p>
+                    <label for="sc_event"><?php _e('Event Tag', 'yardsale') ?></label>
+                    <input id="sc_event" type="text" size="30" value="yardsale" onkeyup="ysCreateShortCodes()"/>
+                </p>
+            </div>
 
-            <p>
-                <label for="sc_event"><?php _e('Event Tag', 'yardsale') ?></label>
-                <input id="sc_event" type="text" size="30" value="yardsale" onkeyup="ysCreateShortCodes()"/>
-            </p>
-        </div>
+            <div id="yardsale_shortcode_tab-4">
+                <p><?php _e('Optional: if you want any of City, State, or Zip fields to be a pick-list on the entry form instead of a text field, enter a comma-delimited list of values.', 'yardsale') ?></p>
 
-        <h3><a href="#"><?php _e('Map Size', 'yardsale') ?></a></h3>
+                <table cellspacing="10px">
+                    <tr>
+                        <td><label for="sc_city"><?php _e('City', 'yardsale') ?></label></td>
+                        <td><input id="sc_city" type="text" size="50" onkeyup="ysCreateShortCodes()"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sc_state"><?php _e('State', 'yardsale') ?></label></td>
+                        <td><input id="sc_state" type="text" size="50" onkeyup="ysCreateShortCodes()"/></td>
+                        <td><?php _e('Example: "DC,MD,VA"', 'yardsale') ?></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sc_zip"><?php _e('Zip', 'yardsale') ?></label></td>
+                        <td><input id="sc_zip" type="text" size="50" onkeyup="ysCreateShortCodes()"/></td>
+                        <td><?php _e('Example: "12345,12346,12347"', 'yardsale') ?></td>
+                    </tr>
+                </table>
+            </div>
 
-        <div>
-            <p><?php _e('Set the Google Map height and width. Use pixels or percentage width.', 'yardsale') ?></p>
-            <ul>
-                <li><?php _e('Warning: if both height and width are percentages then the map may not display', 'yardsale'); ?></li>
-                <li><?php _e('Setting a height in pixels and a width=100% is a common choice', 'yardsale'); ?></li>
-                <li><?php _e('Note: You can tweak these values later directly in the short code after you have put the short code on a page and looked at it', 'yardsale'); ?></li>
-            </ul>
+            <div id="yardsale_shortcode_tab-5">
+                <p><?php _e('Optional: if you would like the entry form to pre-populate fields with default values, enter them here. If you are also setting field to be pick-lists, be sure that the values you put in this section are included in the comma-delimited list. That option will be selected by default in the pick-list', 'yardsale') ?></p>
 
-            <table cellspacing="10px">
-                <tr>
-                    <td><label for="sc_form_map_height"><?php _e('Form Map Height', 'yardsale') ?></label></td>
-                    <td><input id="sc_form_map_height" type="text" size="10" value="500px"
-                               onkeyup="ysCreateShortCodes()"/></td>
-                    <td><label for="sc_form_map_width"><?php _e('Form Map Width', 'yardsale') ?></label></td>
-                    <td><input id="sc_form_map_width" type="text" size="10" value="100%"
-                               onkeyup="ysCreateShortCodes()"/></td>
-                </tr>
-                <tr>
-                    <td><label for="sc_listing_map_height"><?php _e('Listing Map Height', 'yardsale') ?></label></td>
-                    <td><input id="sc_listing_map_height" type="text" size="10" value="500px"
-                               onkeyup="ysCreateShortCodes()"/></td>
-                    <td><label for="sc_listing_map_width"><?php _e('Listing Map Width', 'yardsale') ?></label></td>
-                    <td><input id="sc_listing_map_width" type="text" size="10" value="100%"
-                               onkeyup="ysCreateShortCodes()"/></td>
-                </tr>
-            </table>
-        </div>
+                <table cellspacing="10px">
+                    <tr>
+                        <td><label for="sc_citydefault"><?php _e('City', 'yardsale') ?></label></td>
+                        <td><input id="sc_citydefault" type="text" size="40" onkeyup="ysCreateShortCodes()"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sc_statedefault"><?php _e('State', 'yardsale') ?></label></td>
+                        <td><input id="sc_statedefault" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sc_zipdefault"><?php _e('Zip', 'yardsale') ?></label></td>
+                        <td><input id="sc_zipdefault" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
+                    </tr>
+                </table>
+            </div>
 
-        <h3><a href="#"><?php _e('Input Form Pick Lists (Optional)', 'yardsale') ?></a></h3>
-
-        <div>
-            <p><?php _e('Optional: if you want any of City, State, or Zip fields to be a pick-list on the entry form instead of a text field, enter a comma-delimited list of values.', 'yardsale') ?></p>
-
-            <table cellspacing="10px">
-                <tr>
-                    <td><label for="sc_city"><?php _e('City', 'yardsale') ?></label></td>
-                    <td><input id="sc_city" type="text" size="50" onkeyup="ysCreateShortCodes()"/></td>
-                </tr>
-                <tr>
-                    <td><label for="sc_state"><?php _e('State', 'yardsale') ?></label></td>
-                    <td><input id="sc_state" type="text" size="50" onkeyup="ysCreateShortCodes()"/></td>
-                    <td><?php _e('Example: "DC,MD,VA"', 'yardsale') ?></td>
-                </tr>
-                <tr>
-                    <td><label for="sc_zip"><?php _e('Zip', 'yardsale') ?></label></td>
-                    <td><input id="sc_zip" type="text" size="50" onkeyup="ysCreateShortCodes()"/></td>
-                    <td><?php _e('Example: "12345,12346,12347"', 'yardsale') ?></td>
-                </tr>
-            </table>
-        </div>
-
-
-        <h3><a href="#"><?php _e('Input Form Defaults (Optional)', 'yardsale') ?></a></h3>
-
-        <div>
-            <p><?php _e('Optional: if you would like the entry form to pre-populate fields with default values, enter them here. If you are also setting field to be pick-lists, be sure that the values you put in this section are included in the comma-delimited list. That option will be selected by default in the pick-list', 'yardsale') ?></p>
-
-            <table cellspacing="10px">
-                <tr>
-                    <td><label for="sc_citydefault"><?php _e('City', 'yardsale') ?></label></td>
-                    <td><input id="sc_citydefault" type="text" size="40" onkeyup="ysCreateShortCodes()"/></td>
-                </tr>
-                <tr>
-                    <td><label for="sc_statedefault"><?php _e('State', 'yardsale') ?></label></td>
-                    <td><input id="sc_statedefault" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
-                </tr>
-                <tr>
-                    <td><label for="sc_zipdefault"><?php _e('Zip', 'yardsale') ?></label></td>
-                    <td><input id="sc_zipdefault" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
-                </tr>
-            </table>
+            <div id="yardsale_shortcode_tab-6">
+                <p><?php _e('Optional: When printing a listing page, you may wish to hide certain HTML DIVs (such as a header or left nav) to save paper. Put a comma-delimited list of HTML IDs of to hide. This is not guaranteed to work.', 'yardsale') ?></p>
+                <p>
+                    <label for="sc_hideonprint"><?php _e('HTML IDs to hide on print', 'yardsale') ?></label>
+                    <input id="sc_hideonprint" type="text" size="50" onkeyup="ysCreateShortCodes()" />
+                </p>
+            </div>
         </div>
 
     </div>
 
-    <h3><a href="#"><?php _e('Hide On Print (Optional)', 'yardsale') ?></a></h3>
-
-    <div>
-        <p><?php _e('Optional: When printing a listing page, you may wish to hide certain HTML DIVs (such as a header) to save paper. Put a comma-delimited list of HTML IDs of to hide. This is not guaranteed to work.', 'yardsale') ?></p>
-        <p>
-            <label for="sc_hideonprint"><?php _e('HTML IDs to hide on print', 'yardsale') ?></label>
-            <input id="sc_hideonprint" type="text" size="50" onkeyup="ysCreateShortCodes()" />
-        </p>
-    </div>
 
     <script type="text/javascript">
         jQuery(document).ready(function() {
