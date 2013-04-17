@@ -1,235 +1,19 @@
-# Copyright (C) 2010 
+# Copyright (C) 2013 
 # This file is distributed under the same license as the  package.
 msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/community-yard-sale\n"
-"POT-Creation-Date: 2011-11-26 21:57:43+00:00\n"
+"POT-Creation-Date: 2013-04-17 22:04:31+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2010-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: yardsale.php:23
-msgid ""
-"Error: plugin \"Community Yard Sale\" requires a newer version of PHP to be "
-"running."
-msgstr ""
-
-#: yardsale.php:24
-msgid "Minimal version of PHP required: "
-msgstr ""
-
-#: yardsale.php:25
-msgid "Your server's PHP version: "
-msgstr ""
-
-#: YSPlugin.php:29
-msgid "I have donated to this plugin"
-msgstr ""
-
-#: YSPlugin.php:30
-msgid "Drop this plugin's Database table on uninstall"
-msgstr ""
-
-#: YSPlugin.php:160 YSOptionsManager.php:266
+#: YSOptionsManager.php:266 YSPlugin.php:160
 msgid "You do not have sufficient permissions to access this page."
-msgstr ""
-
-#: YSPlugin.php:199
-msgid "Plugin Support"
-msgstr ""
-
-#: YSPlugin.php:240
-msgid "Delete all entries associated with an event tag"
-msgstr ""
-
-#: YSPlugin.php:264
-msgid ""
-"Enter the Yard Sale ID of the entry you wish to delete. (Example: "
-"1314383685_9253)<br/>\r\n"
-"    This ID appears in the edit URL sent to the user after he registers "
-"(Example: http://&lt;page-url&gt;?ysid=<strong>1314383685_9253</strong>)"
-msgstr ""
-
-#: YSPlugin.php:291 YSPlugin.php:310
-msgid "MySQL error"
-msgstr ""
-
-#: YSPlugin.php:291 YSPlugin.php:310
-msgid "row(s) deleted"
-msgstr ""
-
-#: YSPlugin.php:294
-msgid "Error: No ID given"
-msgstr ""
-
-#: YSPlugin.php:313
-msgid "Error: No event tag given"
-msgstr ""
-
-#: YSPlugin.php:331
-msgid "Fill in the options below to generate short codes to put on your pages"
-msgstr ""
-
-#: YSPlugin.php:333
-msgid ""
-"Place the [yardsale-form] short code on a page to display the yard sale "
-"entry form"
-msgstr ""
-
-#: YSPlugin.php:342
-msgid ""
-"Place the [yardsale-listing] short code on a <strong>different page</strong> "
-"to display the yard sale listings"
-msgstr ""
-
-#: YSPlugin.php:368 YSPlugin.php:374
-msgid "Event Tag"
-msgstr ""
-
-#: YSPlugin.php:371
-msgid ""
-"Give your event a unique tag. This is used to distinguish different "
-"community yard sale events. Your pair of short codes will need to have the "
-"same event tag."
-msgstr ""
-
-#: YSPlugin.php:379
-msgid "Map Size"
-msgstr ""
-
-#: YSPlugin.php:382
-msgid "Set the Google Map height and width. Use pixels or percentage width."
-msgstr ""
-
-#: YSPlugin.php:384
-msgid ""
-"Warning: if both height and width are percentages then the map may not "
-"display"
-msgstr ""
-
-#: YSPlugin.php:385
-msgid "Setting a height in pixels and a width=100% is a common choice"
-msgstr ""
-
-#: YSPlugin.php:386
-msgid ""
-"Note: You can tweak these values later directly in the short code after you "
-"have put the short code on a page and looked at it"
-msgstr ""
-
-#: YSPlugin.php:391
-msgid "Form Map Height"
-msgstr ""
-
-#: YSPlugin.php:394
-msgid "Form Map Width"
-msgstr ""
-
-#: YSPlugin.php:399
-msgid "Listing Map Height"
-msgstr ""
-
-#: YSPlugin.php:402
-msgid "Listing Map Width"
-msgstr ""
-
-#: YSPlugin.php:409
-msgid "Map Location"
-msgstr ""
-
-#: YSPlugin.php:423
-msgid "Center The Google Map to display your community yard sale area."
-msgstr ""
-
-#: YSPlugin.php:425
-msgid "Type in an address"
-msgstr ""
-
-#: YSPlugin.php:426
-msgid "Click on the map to adjust the center"
-msgstr ""
-
-#: YSPlugin.php:429
-msgid "Address"
-msgstr ""
-
-#: YSPlugin.php:432
-msgid "Center Map"
-msgstr ""
-
-#: YSPlugin.php:441
-msgid "Latitude"
-msgstr ""
-
-#: YSPlugin.php:445
-msgid "Longitude"
-msgstr ""
-
-#: YSPlugin.php:449
-msgid "Zoom"
-msgstr ""
-
-#: YSPlugin.php:455
-msgid "Input Form Pick Lists (Optional)"
-msgstr ""
-
-#: YSPlugin.php:458
-msgid ""
-"Optional: if you want any of City, State, or Zip fields to be a pick-list on "
-"the entry form instead of a text field, enter a comma-delimited list of "
-"values."
-msgstr ""
-
-#: YSPlugin.php:462 YSPlugin.php:486 YSShortCodeForm.php:354
-msgid "City"
-msgstr ""
-
-#: YSPlugin.php:466 YSPlugin.php:490 YSShortCodeForm.php:357
-msgid "State"
-msgstr ""
-
-#: YSPlugin.php:468
-msgid "Example: \"DC,MD,VA\""
-msgstr ""
-
-#: YSPlugin.php:471 YSPlugin.php:494 YSShortCodeForm.php:360
-msgid "Zip"
-msgstr ""
-
-#: YSPlugin.php:473
-msgid "Example: \"12345,12346,12347\""
-msgstr ""
-
-#: YSPlugin.php:479
-msgid "Input Form Defaults (Optional)"
-msgstr ""
-
-#: YSPlugin.php:482
-msgid ""
-"Optional: if you would like the entry form to pre-populate fields with "
-"default values, enter them here. If you are also setting field to be pick-"
-"lists, be sure that the values you put in this section are included in the "
-"comma-delimited list. That option will be selected by default in the pick-"
-"list"
-msgstr ""
-
-#: YSPlugin.php:502
-msgid "Hide On Print (Optional)"
-msgstr ""
-
-#: YSPlugin.php:505
-msgid ""
-"Optional: When printing a listing page, you may wish to hide certain HTML "
-"DIVs (such as a header) to save paper. Put a comma-delimited list of HTML "
-"IDs of to hide. This is not guaranteed to work."
-msgstr ""
-
-#: YSPlugin.php:507
-msgid "HTML IDs to hide on print"
 msgstr ""
 
 #: YSOptionsManager.php:284
@@ -300,6 +84,206 @@ msgstr ""
 msgid "Anyone"
 msgstr ""
 
+#: YSPlugin.php:30
+msgid "Drop this plugin's Database table on uninstall"
+msgstr ""
+
+#: YSPlugin.php:199
+msgid "Plugin Support"
+msgstr ""
+
+#: YSPlugin.php:240
+msgid "Delete all entries associated with an event tag"
+msgstr ""
+
+#: YSPlugin.php:264
+msgid ""
+"Enter the Yard Sale ID of the entry you wish to delete. (Example: "
+"1314383685_9253)<br/>\r\n"
+"    This ID appears in the edit URL sent to the user after he registers "
+"(Example: http://&lt;page-url&gt;?ysid=<strong>1314383685_9253</strong>)"
+msgstr ""
+
+#: YSPlugin.php:291 YSPlugin.php:310
+msgid "MySQL error"
+msgstr ""
+
+#: YSPlugin.php:291 YSPlugin.php:310
+msgid "row(s) deleted"
+msgstr ""
+
+#: YSPlugin.php:294
+msgid "Error: No ID given"
+msgstr ""
+
+#: YSPlugin.php:313
+msgid "Error: No event tag given"
+msgstr ""
+
+#: YSPlugin.php:331
+msgid ""
+"Fill in the options in the tabs below to generate short codes to put on your "
+"pages"
+msgstr ""
+
+#: YSPlugin.php:333
+msgid ""
+"Place the <strong>[yardsale-form]</strong> short code on a page to display "
+"the yard sale entry form"
+msgstr ""
+
+#: YSPlugin.php:342
+msgid ""
+"Place the <strong>[yardsale-listing]</strong> short code on a "
+"<strong>different page</strong> to display the yard sale listings"
+msgstr ""
+
+#: YSPlugin.php:369
+msgid "Map Location"
+msgstr ""
+
+#: YSPlugin.php:370
+msgid "Map Size"
+msgstr ""
+
+#: YSPlugin.php:371 YSPlugin.php:451
+msgid "Event Tag"
+msgstr ""
+
+#: YSPlugin.php:372
+msgid "Input Form Pick Lists (Optional)"
+msgstr ""
+
+#: YSPlugin.php:373
+msgid "Input Form Defaults (Optional)"
+msgstr ""
+
+#: YSPlugin.php:374
+msgid "Hide On Print (Optional)"
+msgstr ""
+
+#: YSPlugin.php:388
+msgid "Center The Google Map to display your community yard sale area."
+msgstr ""
+
+#: YSPlugin.php:390
+msgid "Type in an address"
+msgstr ""
+
+#: YSPlugin.php:391
+msgid "Click on the map to adjust the center"
+msgstr ""
+
+#: YSPlugin.php:394
+msgid "Address"
+msgstr ""
+
+#: YSPlugin.php:397
+msgid "Center Map"
+msgstr ""
+
+#: YSPlugin.php:406
+msgid "Latitude"
+msgstr ""
+
+#: YSPlugin.php:410
+msgid "Longitude"
+msgstr ""
+
+#: YSPlugin.php:414
+msgid "Zoom"
+msgstr ""
+
+#: YSPlugin.php:420
+msgid "Set the Google Map height and width. Use pixels or percentage width."
+msgstr ""
+
+#: YSPlugin.php:422
+msgid ""
+"Warning: if both height and width are percentages then the map may not "
+"display"
+msgstr ""
+
+#: YSPlugin.php:423
+msgid "Setting a height in pixels and a width=100% is a common choice"
+msgstr ""
+
+#: YSPlugin.php:424
+msgid ""
+"Note: You can tweak these values later directly in the short code after you "
+"have put the short code on a page and looked at it"
+msgstr ""
+
+#: YSPlugin.php:429
+msgid "Form Map Height"
+msgstr ""
+
+#: YSPlugin.php:432
+msgid "Form Map Width"
+msgstr ""
+
+#: YSPlugin.php:437
+msgid "Listing Map Height"
+msgstr ""
+
+#: YSPlugin.php:440
+msgid "Listing Map Width"
+msgstr ""
+
+#: YSPlugin.php:448
+msgid ""
+"Give your event a unique tag. This is used to distinguish different "
+"community yard sale events. Your pair of short codes will need to have the "
+"same event tag."
+msgstr ""
+
+#: YSPlugin.php:457
+msgid ""
+"Optional: if you want any of City, State, or Zip fields to be a pick-list on "
+"the entry form instead of a text field, enter a comma-delimited list of "
+"values."
+msgstr ""
+
+#: YSPlugin.php:461 YSPlugin.php:482 YSShortCodeForm.php:354
+msgid "City"
+msgstr ""
+
+#: YSPlugin.php:465 YSPlugin.php:486 YSShortCodeForm.php:357
+msgid "State"
+msgstr ""
+
+#: YSPlugin.php:467
+msgid "Example: \"DC,MD,VA\""
+msgstr ""
+
+#: YSPlugin.php:470 YSPlugin.php:490 YSShortCodeForm.php:360
+msgid "Zip"
+msgstr ""
+
+#: YSPlugin.php:472
+msgid "Example: \"12345,12346,12347\""
+msgstr ""
+
+#: YSPlugin.php:478
+msgid ""
+"Optional: if you would like the entry form to pre-populate fields with "
+"default values, enter them here. If you are also setting field to be pick-"
+"lists, be sure that the values you put in this section are included in the "
+"comma-delimited list. That option will be selected by default in the pick-"
+"list"
+msgstr ""
+
+#: YSPlugin.php:497
+msgid ""
+"Optional: When printing a listing page, you may wish to hide certain HTML "
+"DIVs (such as a header or left nav) to save paper. Put a comma-delimited "
+"list of HTML IDs of to hide. This is not guaranteed to work."
+msgstr ""
+
+#: YSPlugin.php:499
+msgid "HTML IDs to hide on print"
+msgstr ""
+
 #: YSShortCodeForm.php:223
 msgid "Your entry has been updated"
 msgstr ""
@@ -363,4 +347,18 @@ msgstr ""
 
 #: YSShortCodeForm.php:364
 msgid "For Sale Items"
+msgstr ""
+
+#: yardsale.php:23
+msgid ""
+"Error: plugin \"Community Yard Sale\" requires a newer version of PHP to be "
+"running."
+msgstr ""
+
+#: yardsale.php:24
+msgid "Minimal version of PHP required: "
+msgstr ""
+
+#: yardsale.php:25
+msgid "Your server's PHP version: "
 msgstr ""
