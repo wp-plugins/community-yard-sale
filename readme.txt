@@ -62,14 +62,17 @@ both tags so that they reference the same data.
 
 == Changelog ==
 
+= 1.0.4 =
+* Fixing issue where Google Map in admin page does not fully display
+
 = 1.0.3 =
-Limits size of any entry cell being displayed. Makes cell scrollable.
+* Limits size of any entry cell being displayed. Makes cell scrollable.
 
 = 1.0.1 =
 Minor tweaks
 
 = 1.0 =
-Now available via WordPress site
+* Now available via WordPress site
 
 = 0.1 =
-Initial Revision
+* Initial Revision

@@ -26,7 +26,7 @@ class YSPlugin extends YSLifeCycle {
     public function getOptionMetaData() {
         return array(
             //'_version' => array('Installed Version'), // For testing upgrades
-            'Donated' => array(__('I have donated to this plugin', 'yardsale'), 'false', 'true'),
+            //'Donated' => array(__('I have donated to this plugin', 'yardsale'), 'false', 'true'),
             'DropOnUninstall' => array(__('Drop this plugin\'s Database table on uninstall', 'yardsale'), 'false', 'true')
         );
     }
@@ -195,7 +195,7 @@ class YSPlugin extends YSLifeCycle {
                 ?>
                 <td width="50%" align="center" valign="center">
                     <a target="_support"
-                       href="http://wordpress.org/tags/community-yard-sale">
+                       href="http://wordpress.org/support/plugin/community-yard-sale">
                         <strong><?php _e('Plugin Support', 'yardsale') ?></strong>
                     </a>
                 </td>
@@ -365,52 +365,11 @@ class YSPlugin extends YSLifeCycle {
 
     <div id="accordion">
 
-        <h3><a href="#"><?php _e('Event Tag', 'yardsale') ?></a></h3>
-
-        <div>
-            <p><?php _e('Give your event a unique tag. This is used to distinguish different community yard sale events. Your pair of short codes will need to have the same event tag.', 'yardsale') ?></p>
-
-            <p>
-                <label for="sc_event"><?php _e('Event Tag', 'yardsale') ?></label>
-                <input id="sc_event" type="text" size="30" value="yardsale" onkeyup="ysCreateShortCodes()"/>
-            </p>
-        </div>
-
-        <h3><a href="#"><?php _e('Map Size', 'yardsale') ?></a></h3>
-
-        <div>
-            <p><?php _e('Set the Google Map height and width. Use pixels or percentage width.', 'yardsale') ?></p>
-            <ul>
-                <li><?php _e('Warning: if both height and width are percentages then the map may not display', 'yardsale'); ?></li>
-                <li><?php _e('Setting a height in pixels and a width=100% is a common choice', 'yardsale'); ?></li>
-                <li><?php _e('Note: You can tweak these values later directly in the short code after you have put the short code on a page and looked at it', 'yardsale'); ?></li>
-            </ul>
-
-            <table cellspacing="10px">
-                <tr>
-                    <td><label for="sc_form_map_height"><?php _e('Form Map Height', 'yardsale') ?></label></td>
-                    <td><input id="sc_form_map_height" type="text" size="10" value="500px"
-                               onkeyup="ysCreateShortCodes()"/></td>
-                    <td><label for="sc_form_map_width"><?php _e('Form Map Width', 'yardsale') ?></label></td>
-                    <td><input id="sc_form_map_width" type="text" size="10" value="100%"
-                               onkeyup="ysCreateShortCodes()"/></td>
-                </tr>
-                <tr>
-                    <td><label for="sc_listing_map_height"><?php _e('Listing Map Height', 'yardsale') ?></label></td>
-                    <td><input id="sc_listing_map_height" type="text" size="10" value="500px"
-                               onkeyup="ysCreateShortCodes()"/></td>
-                    <td><label for="sc_listing_map_width"><?php _e('Listing Map Width', 'yardsale') ?></label></td>
-                    <td><input id="sc_listing_map_width" type="text" size="10" value="100%"
-                               onkeyup="ysCreateShortCodes()"/></td>
-                </tr>
-            </table>
-        </div>
-
         <h3><a href="#"><?php _e('Map Location', 'yardsale') ?></a></h3>
 
         <div>
             <?php
-                    // The White House as a generic starting location
+            // The White House as a generic starting location
             $centerLat = '38.897678';
             $centerLng = '-77.036517';
             $zoom = '14';
@@ -451,6 +410,46 @@ class YSPlugin extends YSLifeCycle {
             </p>
         </div>
 
+        <h3><a href="#"><?php _e('Event Tag', 'yardsale') ?></a></h3>
+
+        <div>
+            <p><?php _e('Give your event a unique tag. This is used to distinguish different community yard sale events. Your pair of short codes will need to have the same event tag.', 'yardsale') ?></p>
+
+            <p>
+                <label for="sc_event"><?php _e('Event Tag', 'yardsale') ?></label>
+                <input id="sc_event" type="text" size="30" value="yardsale" onkeyup="ysCreateShortCodes()"/>
+            </p>
+        </div>
+
+        <h3><a href="#"><?php _e('Map Size', 'yardsale') ?></a></h3>
+
+        <div>
+            <p><?php _e('Set the Google Map height and width. Use pixels or percentage width.', 'yardsale') ?></p>
+            <ul>
+                <li><?php _e('Warning: if both height and width are percentages then the map may not display', 'yardsale'); ?></li>
+                <li><?php _e('Setting a height in pixels and a width=100% is a common choice', 'yardsale'); ?></li>
+                <li><?php _e('Note: You can tweak these values later directly in the short code after you have put the short code on a page and looked at it', 'yardsale'); ?></li>
+            </ul>
+
+            <table cellspacing="10px">
+                <tr>
+                    <td><label for="sc_form_map_height"><?php _e('Form Map Height', 'yardsale') ?></label></td>
+                    <td><input id="sc_form_map_height" type="text" size="10" value="500px"
+                               onkeyup="ysCreateShortCodes()"/></td>
+                    <td><label for="sc_form_map_width"><?php _e('Form Map Width', 'yardsale') ?></label></td>
+                    <td><input id="sc_form_map_width" type="text" size="10" value="100%"
+                               onkeyup="ysCreateShortCodes()"/></td>
+                </tr>
+                <tr>
+                    <td><label for="sc_listing_map_height"><?php _e('Listing Map Height', 'yardsale') ?></label></td>
+                    <td><input id="sc_listing_map_height" type="text" size="10" value="500px"
+                               onkeyup="ysCreateShortCodes()"/></td>
+                    <td><label for="sc_listing_map_width"><?php _e('Listing Map Width', 'yardsale') ?></label></td>
+                    <td><input id="sc_listing_map_width" type="text" size="10" value="100%"
+                               onkeyup="ysCreateShortCodes()"/></td>
+                </tr>
+            </table>
+        </div>
 
         <h3><a href="#"><?php _e('Input Form Pick Lists (Optional)', 'yardsale') ?></a></h3>
 
