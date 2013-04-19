@@ -54,7 +54,7 @@ abstract class YSShortCodeLoader {
 
     /**
      * @abstract Override this function and add actual shortcode handling here
-     * @param  $atts shortcode inputs
+     * @param  $atts array shortcode inputs associative array
      * @return string shortcode content
      */
     public abstract function handleShortcode($atts);

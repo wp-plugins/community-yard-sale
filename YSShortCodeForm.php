@@ -80,7 +80,7 @@ class YSShortCodeForm extends YSShortCodeLoader {
     );
 
     /**
-     * @param  $atts shortcode inputs
+     * @param  $atts array shortcode inputs associative array
      * @return string shortcode content
      */
     public function handleShortcode($atts) {
