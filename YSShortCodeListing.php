@@ -1,6 +1,6 @@
 <?php
 /*
-    "Community Yard Sale Plugin for WordPress" Copyright (C) 2011 Michael Simpson  (email : michael.d.simpson@gmail.com)
+    "Community Yard Sale Plugin for WordPress" Copyright (C) 2013 Michael Simpson  (email : michael.d.simpson@gmail.com)
 
     This file is part of Community Yard Sale Plugin for WordPress.
 
@@ -136,6 +136,7 @@ class YSShortCodeListing extends YSShortCodeLoader {
 
 
     <script type="text/javascript">
+        jQuery("#yardsale_table th:first").width(50);
         var ys = new YSListing(<?php printf('%s, %s, %s, "%s", "%s"',
                                             $this->lat,
                                             $this->lng,
