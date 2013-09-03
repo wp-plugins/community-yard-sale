@@ -62,6 +62,9 @@ both tags so that they reference the same data.
 
 == Changelog ==
 
+= 1.0.5 =
+* Minor fixes.
+
 = 1.0.4 =
 * Fixing issue where Google Map in admin page does not fully display
 
