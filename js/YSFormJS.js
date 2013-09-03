@@ -13,8 +13,9 @@ function YSFormJS(formId, mapId, centerLat, centerLong, zoom) {
     };
 
     this.fetchLatLong = function() {
-        if (this.marker) {
-            this.marker.setMap(null);
+        var ysFormJs = this;
+        if (ysFormJs.marker) {
+            ysFormJs.marker.setMap(null);
         }
         var geocoder = new google.maps.Geocoder();
         var address = this.getAddress();
@@ -23,13 +24,13 @@ function YSFormJS(formId, mapId, centerLat, centerLong, zoom) {
                 if (status != google.maps.GeocoderStatus.ZERO_RESULTS) {
                     var latlng = results[0].geometry.location;
                     document.getElementById(formId).latlng.value = latlng;
-                    this.marker = new google.maps.Marker(
+                    ysFormJs.marker = new google.maps.Marker(
                             {
                                 position: latlng,
-                                map: this.map,
+                                map: ysFormJs.map,
                                 title: address
                             });
-                    this.map.setCenter(latlng);
+                    ysFormJs.map.setCenter(latlng);
                 }
                 else {
                     //alert("No results found for '" + address + "'");
@@ -72,10 +73,10 @@ function YSFormJS(formId, mapId, centerLat, centerLong, zoom) {
                 center: myLatlng,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
-            this.map = new google.maps.Map(document.getElementById(mapId), myOptions);
+            ysFormJs.map = new google.maps.Map(document.getElementById(mapId), myOptions);
 
             if (document.getElementById(formId).street.value.length > 0) {
-                ysFormJsfetchLatLong();
+                ysFormJs.fetchLatLong();
             }
         });
     }
