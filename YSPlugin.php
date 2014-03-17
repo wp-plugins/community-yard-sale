@@ -94,24 +94,11 @@ class YSPlugin extends YSLifeCycle {
         add_action('wp_ajax_yardsale-delete-event', array(&$this, 'ajaxDeleteEvent')); // only for Setting page
 
         // Add scripts required by the short codes
-        wp_enqueue_script('google-maps', 'http://maps.google.com/maps/api/js?sensor=false');
-        wp_enqueue_script('yardsale-YSFormJS', plugins_url('/js/YSFormJS.js', __FILE__));
-        wp_enqueue_script('jquery');
-        wp_enqueue_script('yardsale-uitablefilter', plugins_url('/js/jquery.uitablefilter.js', __FILE__), array('jquery'));
-
-        // TURNED OFF AUTO SCROLLING IN TABLE - see YSListing.js
-        //wp_enqueue_script('yardsale-ScrollToAnchor', plugins_url('/js/ScrollToAnchor.js', __FILE__));
-
-        wp_enqueue_script('yardsale-YSListing', plugins_url('/js/YSListing.js', __FILE__), array('jquery'));
+        add_action('wp_enqueue_scripts', array(&$this, 'enqueueShortCodeScripts'));
 
         // Needed for the Settings Page
         if (strpos($_SERVER['REQUEST_URI'], $this->getSettingsSlug()) !== false) {
-            wp_enqueue_style('jquery-ui', plugins_url('/css/jquery-ui.css', __FILE__));
-            wp_enqueue_script('jquery-ui-core');
-            wp_enqueue_script('jquery-ui-tabs');
-            wp_enqueue_script('jquery-ui-accordion'); // not installed by default
-            wp_enqueue_script('yardsale-admin-delete', plugins_url('/js/ysdelete.js', __FILE__));
-            wp_enqueue_script('yardsale-admin-shortcodebuilder', plugins_url('/js/ysshortcodebuilder.js', __FILE__));
+            add_action('admin_enqueue_scripts', array(&$this, 'enqueueSettingsPageScripts'));
         }
 
         // Register short codes
@@ -123,6 +110,29 @@ class YSPlugin extends YSLifeCycle {
         $sc = new YSShortCodeListing();
         $sc->register('yardsale-listing');
 
+    }
+
+    public function enqueueShortCodeScripts() {
+        wp_enqueue_script('google-maps', 'http://maps.google.com/maps/api/js?sensor=false');
+        wp_enqueue_script('yardsale-YSFormJS', plugins_url('/js/YSFormJS.js', __FILE__));
+        wp_enqueue_script('jquery');
+        wp_enqueue_script('yardsale-uitablefilter', plugins_url('/js/jquery.uitablefilter.js', __FILE__), array('jquery'));
+
+        // TURNED OFF AUTO SCROLLING IN TABLE - see YSListing.js
+        //wp_enqueue_script('yardsale-ScrollToAnchor', plugins_url('/js/ScrollToAnchor.js', __FILE__));
+
+        wp_enqueue_script('yardsale-YSListing', plugins_url('/js/YSListing.js', __FILE__), array('jquery'));
+    }
+
+    public function enqueueSettingsPageScripts() {
+        wp_enqueue_style('jquery-ui', plugins_url('/css/jquery-ui.css', __FILE__));
+        wp_enqueue_script('google-maps', 'http://maps.google.com/maps/api/js?sensor=false');
+        wp_enqueue_script('jquery');
+        wp_enqueue_script('jquery-ui-core');
+        wp_enqueue_script('jquery-ui-tabs');
+        wp_enqueue_script('jquery-ui-accordion'); // not installed by default
+        wp_enqueue_script('yardsale-admin-delete', plugins_url('/js/ysdelete.js', __FILE__));
+        wp_enqueue_script('yardsale-admin-shortcodebuilder', plugins_url('/js/ysshortcodebuilder.js', __FILE__));
     }
 
     public function ajaxGetJson() {

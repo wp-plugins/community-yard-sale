@@ -175,7 +175,7 @@ class YSShortCodeForm extends YSShortCodeLoader {
         $tableName = $this->plugin->getTableName();
 
         // PROCESS FORM SUBMISSION
-        //print_r($_POST); die;
+        //print_r($_POST); // DEBUG
 
         if (isset($_POST['_wpnonce']) &&
             isset($_POST['email']) &&
@@ -207,11 +207,11 @@ class YSShortCodeForm extends YSShortCodeLoader {
             $zip = $_POST['zip'];
             $listing = $_POST['listing'];
 
-            $ip = ($_SERVER['X_FORWARDED_FOR']) ? $_SERVER['X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
+            $ip = isset($_SERVER['X_FORWARDED_FOR']) ? $_SERVER['X_FORWARDED_FOR'] : $_SERVER['REMOTE_ADDR'];
 
-            if ($_POST['ysid'] != "") {
+            if (! empty($_POST['ysid'])) {
                 // Update database entry
-                $ysid = $wpdb->escape($_POST['ysid']);
+                $ysid = esc_sql($_POST['ysid']);
                 $wpdb->show_errors(); // debug
                 $rows = $wpdb->query("UPDATE `$tableName` set
             `email` = '$email', `event`='$event', `lat` = '$lat', `lng` = '$lng',
@@ -327,27 +327,27 @@ class YSShortCodeForm extends YSShortCodeLoader {
 
             <form id="<?php echo $this->formId ?>" action="" method="post">
                 <?php wp_nonce_field('yardsale'); ?>
-                <input name="ysid" type="hidden" value="<?php echo $this->data['ysid'] ?>"/>
-                <input name="latlng" type="hidden" value="<?php echo $this->data['latlng'] ?>"/>
+                <input name="ysid" type="hidden" value="<?php echo isset($this->data['ysid']) ? $this->data['ysid'] : '' ?>"/>
+                <input name="latlng" type="hidden" value="<?php echo isset($this->data['latlng']) ? $this->data['latlng'] : ''?>"/>
                 <table cellpadding="0px" cellspacing="0px">
                     <tbody>
                     <tr>
                         <td><label for="email"><?php _e('Email', 'yardsale') ?>*</label></td>
                         <td><input name="email" id="email" type="text" size="30"
-                                   value="<?php echo $this->data['email'] ?>"
+                                   value="<?php echo isset($this->data['email']) ? $this->data['email'] : ''?>"
                                    onblur="<?php echo $this->formJS ?>.fetchLatLong()"/>
                         </td>
                     </tr>
                     <tr>
                         <td><label for="street"><?php _e('Street Address', 'yardsale') ?>*</label></td>
                         <td><input name="street" id="street" type="text" size="30"
-                                   value="<?php echo $this->data['street'] ?>"
+                                   value="<?php echo isset($this->data['street']) ? $this->data['street'] : ''?>"
                                    onblur="<?php echo $this->formJS ?>.fetchLatLong()"/></td>
                     </tr>
                     <tr>
                         <td><label for="unit"><?php _e('Unit/Apartment', 'yardsale') ?></label></td>
                         <td><input name="unit" id="unit" type="text" size="5"
-                                   value="<?php echo $this->data['unit'] ?>"
+                                   value="<?php echo isset($this->data['unit']) ? $this->data['unit'] : ''?>"
                                    onblur="<?php echo $this->formJS ?>.fetchLatLong()"/></td>
                     </tr>
                     <tr>
@@ -363,7 +363,7 @@ class YSShortCodeForm extends YSShortCodeLoader {
                 </table>
                 <label for="listing"><?php _e('For Sale Items', 'yardsale') ?>*</label><br/>
                 <textarea name="listing" id="listing" rows="10"
-                          cols="30"><?php echo $this->data['listing'] ?></textarea>
+                          cols="30"><?php echo isset($this->data['listing']) ? $this->data['listing'] : ''?></textarea>
                 <br/>
                 <input onclick="<?php echo $this->formJS ?>.fetchLatLong(); return <?php echo $this->formJS ?>.validate();"
                        type="submit" value="Submit"/>
@@ -394,7 +394,7 @@ class YSShortCodeForm extends YSShortCodeLoader {
                    id="<?php echo $field ?>"
                    type="text"
                    size="<?php echo $textFieldSize ?>"
-                   value="<?php echo $this->data[$field] ?>"
+                   value="<?php echo isset($this->data[$field]) ? $this->data[$field] : ''?>"
                    onblur="<?php echo $this->formJS ?>.fetchLatLong()"/>
             <?php
         }
@@ -405,7 +405,7 @@ class YSShortCodeForm extends YSShortCodeLoader {
             <?php
             foreach ($this->formOptions[$field] as $val) {
                 ?>
-                <option value="<?php echo $val ?>" <?php echo ($this->data[$field] == $val ? "selected" : "") ?>><?php echo $val ?></option>
+                <option value="<?php echo $val ?>" <?php echo isset($this->data[$field]) && $this->data[$field] == $val ? 'selected' : '' ?>><?php echo $val ?></option>
                 <?php
             }
             ?>

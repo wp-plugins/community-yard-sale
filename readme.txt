@@ -3,7 +3,7 @@ Contributors: msimpson
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F3FF6MP948QPW
 Tags: yardsale,yard sale,community yard sale
 Requires at least: 3.0
-Tested up to: 3.5.1
+Tested up to: 3.8.1
 Stable tag: 1.0.5
 
 Community yard sale with filterable table and Google Map.
@@ -62,6 +62,9 @@ both tags so that they reference the same data.
 
 == Changelog ==
 
+= 1.1
+* Fixed errors reported in WP_DEBUG mode
+
 = 1.0.5 =
 * Minor fixes.
 
@@ -72,7 +75,7 @@ both tags so that they reference the same data.
 * Limits size of any entry cell being displayed. Makes cell scrollable.
 
 = 1.0.1 =
-Minor tweaks
+* Minor tweaks
 
 = 1.0 =
 * Now available via WordPress site
