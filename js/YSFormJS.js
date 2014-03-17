@@ -46,9 +46,9 @@ function YSFormJS(formId, mapId, centerLat, centerLong, zoom) {
         var frm = document.getElementById(formId);
         if (frm.email.value == "") return this.error(frm.email);
         if (frm.street.value == "") return this.error(frm.street);
-        if (frm.city.value == "") return this.error(frm.city);
-        if (frm.state.value == "") return this.error(frm.state);
-        if (frm.zip.value == "") return this.error(frm.zip);
+        //if (frm.city.value == "") return this.error(frm.city);
+        //if (frm.state.value == "") return this.error(frm.state);
+        //if (frm.zip.value == "") return this.error(frm.zip);
         if (frm.listing.value == "") return this.error(frm.listing);
         if (frm.latlng.value == "") {
             alert('Address cannot be located on Google Maps: \n"' +

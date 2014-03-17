@@ -79,6 +79,16 @@ class YSShortCodeForm extends YSShortCodeLoader {
         'zip' => ''
     );
 
+    /** @var array ($key => $value) labels for city, state, zip */
+    var $formLabels = array(
+        'email' => 'Email',
+        'street' => 'Street',
+        'unit' => 'Unit/Apartment',
+        'city' => 'City',
+        'state' => 'State',
+        'zip' => 'Zip'
+    );
+
     /**
      * @param  $atts array shortcode inputs associative array
      * @return string shortcode content
@@ -125,6 +135,26 @@ class YSShortCodeForm extends YSShortCodeLoader {
         }
         if (isset($atts['zipdefault'])) {
             $this->formDefaults['zip'] = $atts['zipdefault'];
+        }
+
+        // Form Labels
+        if (isset($atts['emaillabel'])) {
+            $this->formLabels['email'] = $atts['emaillabel'];
+        }
+        if (isset($atts['streetlabel'])) {
+            $this->formLabels['street'] = $atts['streetlabel'];
+        }
+        if (isset($atts['unitlabel'])) {
+            $this->formLabels['unit'] = $atts['unitlabel'];
+        }
+        if (isset($atts['citylabel'])) {
+            $this->formLabels['city'] = $atts['citylabel'];
+        }
+        if (isset($atts['statelabel'])) {
+            $this->formLabels['state'] = $atts['statelabel'];
+        }
+        if (isset($atts['ziplabel'])) {
+            $this->formLabels['zip'] = $atts['ziplabel'];
         }
 
         ob_start();
@@ -332,32 +362,32 @@ class YSShortCodeForm extends YSShortCodeLoader {
                 <table cellpadding="0px" cellspacing="0px">
                     <tbody>
                     <tr>
-                        <td><label for="email"><?php _e('Email', 'yardsale') ?>*</label></td>
+                        <td><label for="email"><?php echo $this->formLabels['email'] ?>*</label></td>
                         <td><input name="email" id="email" type="text" size="30"
                                    value="<?php echo isset($this->data['email']) ? $this->data['email'] : ''?>"
                                    onblur="<?php echo $this->formJS ?>.fetchLatLong()"/>
                         </td>
                     </tr>
                     <tr>
-                        <td><label for="street"><?php _e('Street Address', 'yardsale') ?>*</label></td>
+                        <td><label for="street"><?php echo $this->formLabels['street'] ?>*</label></td>
                         <td><input name="street" id="street" type="text" size="30"
                                    value="<?php echo isset($this->data['street']) ? $this->data['street'] : ''?>"
                                    onblur="<?php echo $this->formJS ?>.fetchLatLong()"/></td>
                     </tr>
                     <tr>
-                        <td><label for="unit"><?php _e('Unit/Apartment', 'yardsale') ?></label></td>
+                        <td><label for="unit"><?php echo $this->formLabels['unit'] ?></label></td>
                         <td><input name="unit" id="unit" type="text" size="5"
                                    value="<?php echo isset($this->data['unit']) ? $this->data['unit'] : ''?>"
                                    onblur="<?php echo $this->formJS ?>.fetchLatLong()"/></td>
                     </tr>
                     <tr>
-                        <?php $this->outputFieldWithOptionsAndDefaults('city', __('City', 'yardsale'), '30') ?>
+                        <?php $this->outputFieldWithOptionsAndDefaults('city', $this->formLabels['city'], '30') ?>
                     </tr>
                     <tr>
-                        <?php $this->outputFieldWithOptionsAndDefaults('state', __('State', 'yardsale'), '2') ?>
+                        <?php $this->outputFieldWithOptionsAndDefaults('state', $this->formLabels['state'], '2') ?>
                     </tr>
                     <tr>
-                        <?php $this->outputFieldWithOptionsAndDefaults('zip', __('Zip', 'yardsale'), '10') ?>
+                        <?php $this->outputFieldWithOptionsAndDefaults('zip', $this->formLabels['zip'], '10') ?>
                     </tr>
                     </tbody>
                 </table>
@@ -384,7 +414,7 @@ class YSShortCodeForm extends YSShortCodeLoader {
 
     public function outputFieldWithOptionsAndDefaults($field, $label, $textFieldSize) {
         ?>
-    <td><label for="<?php echo $field ?>"><?php echo $label ?>*</label></td>
+    <td><label for="<?php echo $field ?>"><?php echo $label ?></label></td>
     <td>
         <?php
         if (empty($this->formOptions[$field])) {

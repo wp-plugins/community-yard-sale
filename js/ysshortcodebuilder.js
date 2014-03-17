@@ -30,6 +30,14 @@ function ysCreateShortCodes() {
     formSc += ysCreateParam('sc_statedefault', 'statedefault');
     formSc += ysCreateParam('sc_zipdefault', 'zipdefault');
 
+    // City State Zip Labels
+    formSc += ysCreateParam('sc_emaillabel', 'emaillabel');
+    formSc += ysCreateParam('sc_streetlabel', 'streetlabel');
+    formSc += ysCreateParam('sc_unitlabel', 'unitlabel');
+    formSc += ysCreateParam('sc_citylabel', 'citylabel');
+    formSc += ysCreateParam('sc_statelabel', 'statelabel');
+    formSc += ysCreateParam('sc_ziplabel', 'ziplabel');
+
     // Hide on Print
     listingSc += ysCreateParam('sc_hideonprint', 'hideonprint');
 

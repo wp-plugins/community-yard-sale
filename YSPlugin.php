@@ -381,7 +381,8 @@ class YSPlugin extends YSLifeCycle {
                 <li><a href="#yardsale_shortcode_tab-3"><?php _e('Event Tag', 'yardsale') ?></a></li>
                 <li><a href="#yardsale_shortcode_tab-4"><?php _e('Input Form Pick Lists (Optional)', 'yardsale') ?></a></li>
                 <li><a href="#yardsale_shortcode_tab-5"><?php _e('Input Form Defaults (Optional)', 'yardsale') ?></a></li>
-                <li><a href="#yardsale_shortcode_tab-6"><?php _e('Hide On Print (Optional)', 'yardsale') ?></a></li>
+                <li><a href="#yardsale_shortcode_tab-6"><?php _e('Input Form Labels (Optional)', 'yardsale') ?></a></li>
+                <li><a href="#yardsale_shortcode_tab-7"><?php _e('Hide On Print (Optional)', 'yardsale') ?></a></li>
             </ul>
             <div id="yardsale_shortcode_tab-1">
                 <?php
@@ -504,7 +505,38 @@ class YSPlugin extends YSLifeCycle {
             </div>
 
             <div id="yardsale_shortcode_tab-6">
-                <p><?php _e('Optional: When printing a listing page, you may wish to hide certain HTML DIVs (such as a header or left nav) to save paper. Put a comma-delimited list of HTML IDs of to hide. This is not guaranteed to work.', 'yardsale') ?></p>
+                <p><?php _e('Optional: Instead of the default labels like "State, Zip" you may wish to use other labels such as "Province, Postal Code"', 'yardsale') ?></p>
+
+                <table cellspacing="10px">
+                    <tr>
+                        <td><label for="sc_emaillabel"><?php _e('Email Label', 'yardsale') ?></label></td>
+                        <td><input id="sc_emaillabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sc_streetlabel"><?php _e('Street Label', 'yardsale') ?></label></td>
+                        <td><input id="sc_streetlabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sc_unitlabel"><?php _e('Unit/Apartment Label', 'yardsale') ?></label></td>
+                        <td><input id="sc_unitlabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sc_citylabel"><?php _e('City Label', 'yardsale') ?></label></td>
+                        <td><input id="sc_citylabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sc_statelabel"><?php _e('State Label', 'yardsale') ?></label></td>
+                        <td><input id="sc_statelabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
+                    </tr>
+                    <tr>
+                        <td><label for="sc_ziplabel"><?php _e('Zip Label', 'yardsale') ?></label></td>
+                        <td><input id="sc_ziplabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="yardsale_shortcode_tab-7">
+                <p><?php _e('Optional: When printing a listing page, you may wish to hide certain HTML DIVs (such as a header or left nav) to save paper. Put a comma-delimited list of HTML IDs to hide. This is not guaranteed to work.', 'yardsale') ?></p>
                 <p>
                     <label for="sc_hideonprint"><?php _e('HTML IDs to hide on print', 'yardsale') ?></label>
                     <input id="sc_hideonprint" type="text" size="50" onkeyup="ysCreateShortCodes()" />
