@@ -505,33 +505,48 @@ class YSPlugin extends YSLifeCycle {
             </div>
 
             <div id="yardsale_shortcode_tab-6">
-                <p><?php _e('Optional: Instead of the default labels like "State, Zip" you may wish to use other labels such as "Province, Postal Code"', 'yardsale') ?></p>
+                <p><?php _e('Optional: Instead of the default labels like "State, Zip" you may wish to use other labels such as "Province, Postal Code". Do not omit fields if you set defaults for them', 'yardsale') ?></p>
 
                 <table cellspacing="10px">
-                    <tr>
-                        <td><label for="sc_emaillabel"><?php _e('Email Label', 'yardsale') ?></label></td>
-                        <td><input id="sc_emaillabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
-                    </tr>
-                    <tr>
-                        <td><label for="sc_streetlabel"><?php _e('Street Label', 'yardsale') ?></label></td>
-                        <td><input id="sc_streetlabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
-                    </tr>
-                    <tr>
-                        <td><label for="sc_unitlabel"><?php _e('Unit/Apartment Label', 'yardsale') ?></label></td>
-                        <td><input id="sc_unitlabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
-                    </tr>
-                    <tr>
-                        <td><label for="sc_citylabel"><?php _e('City Label', 'yardsale') ?></label></td>
-                        <td><input id="sc_citylabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
-                    </tr>
-                    <tr>
-                        <td><label for="sc_statelabel"><?php _e('State Label', 'yardsale') ?></label></td>
-                        <td><input id="sc_statelabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
-                    </tr>
-                    <tr>
-                        <td><label for="sc_ziplabel"><?php _e('Zip Label', 'yardsale') ?></label></td>
-                        <td><input id="sc_ziplabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th><?php _e('Default Label') ?></th>
+                            <th><?php _e('Use Instead') ?></th>
+                            <th><?php _e('Show on Form') ?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><label for="sc_emaillabel"><?php _e('Email', 'yardsale') ?></label></td>
+                            <td><input id="sc_emaillabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
+                            <td><input type="checkbox" id="sc_emailshow" checked disabled></td>
+                        </tr>
+                        <tr>
+                            <td><label for="sc_streetlabel"><?php _e('Street', 'yardsale') ?></label></td>
+                            <td><input id="sc_streetlabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
+                            <td><input type="checkbox" id="sc_streetshow" onclick="ysCreateShortCodes()" checked disabled></td>
+                        </tr>
+                        <tr>
+                            <td><label for="sc_unitlabel"><?php _e('Unit/Apartment', 'yardsale') ?></label></td>
+                            <td><input id="sc_unitlabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
+                            <td><input type="checkbox" id="sc_unitshow" onclick="ysCreateShortCodes()" checked></td>
+                        </tr>
+                        <tr>
+                            <td><label for="sc_citylabel"><?php _e('City', 'yardsale') ?></label></td>
+                            <td><input id="sc_citylabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
+                            <td><input type="checkbox" id="sc_cityshow" onclick="ysCreateShortCodes()" checked></td>
+                        </tr>
+                        <tr>
+                            <td><label for="sc_statelabel"><?php _e('State', 'yardsale') ?></label></td>
+                            <td><input id="sc_statelabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
+                            <td><input type="checkbox" id="sc_stateshow" onclick="ysCreateShortCodes()" checked></td>
+                        </tr>
+                        <tr>
+                            <td><label for="sc_ziplabel"><?php _e('Zip', 'yardsale') ?></label></td>
+                            <td><input id="sc_ziplabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
+                            <td><input type="checkbox" id="sc_zipshow" onclick="ysCreateShortCodes()" checked></td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
 

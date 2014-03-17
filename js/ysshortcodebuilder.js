@@ -38,6 +38,19 @@ function ysCreateShortCodes() {
     formSc += ysCreateParam('sc_statelabel', 'statelabel');
     formSc += ysCreateParam('sc_ziplabel', 'ziplabel');
 
+    // Omitted form fields
+    var omittedFields = [];
+    var shows = ['unit', 'city', 'state', 'zip'];
+    for (var i=0; i<shows.length; i++) {
+        var id = '#' + 'sc_' + shows[i] + 'show';
+        if (jQuery(id).is(':not(:checked)')) {
+            omittedFields.push(shows[i]);
+        }
+    }
+    if (omittedFields.length > 0) {
+        formSc += ' omit="' + omittedFields.join(',') + '"';
+    }
+
     // Hide on Print
     listingSc += ysCreateParam('sc_hideonprint', 'hideonprint');
 

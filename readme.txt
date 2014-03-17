@@ -63,7 +63,8 @@ both tags so that they reference the same data.
 == Changelog ==
 
 = 1.1
-* Enhancements to work better for Canada. Can change labels like "State" to "Province" on input form
+* Via setting page, can change labels like "State" to "Province" on input form
+* Via setting page, can omit some fields on the input form
 * Fixed errors reported in WP_DEBUG mode
 
 = 1.0.5 =

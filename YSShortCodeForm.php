@@ -89,6 +89,9 @@ class YSShortCodeForm extends YSShortCodeLoader {
         'zip' => 'Zip'
     );
 
+    /** @var array entries to be omitted from the form */
+    var $omits = array();
+
     /**
      * @param  $atts array shortcode inputs associative array
      * @return string shortcode content
@@ -155,6 +158,11 @@ class YSShortCodeForm extends YSShortCodeLoader {
         }
         if (isset($atts['ziplabel'])) {
             $this->formLabels['zip'] = $atts['ziplabel'];
+        }
+
+        // Form omissions
+        if (isset($atts['omit'])) {
+            $this->omits = explode(',', $atts['omit']);
         }
 
         ob_start();
@@ -374,21 +382,29 @@ class YSShortCodeForm extends YSShortCodeLoader {
                                    value="<?php echo isset($this->data['street']) ? $this->data['street'] : ''?>"
                                    onblur="<?php echo $this->formJS ?>.fetchLatLong()"/></td>
                     </tr>
+                    <?php if (! in_array('unit', $this->omits)) { ?>
                     <tr>
                         <td><label for="unit"><?php echo $this->formLabels['unit'] ?></label></td>
                         <td><input name="unit" id="unit" type="text" size="5"
                                    value="<?php echo isset($this->data['unit']) ? $this->data['unit'] : ''?>"
                                    onblur="<?php echo $this->formJS ?>.fetchLatLong()"/></td>
                     </tr>
+                    <? }
+                    if (! in_array('city', $this->omits)) { ?>
                     <tr>
                         <?php $this->outputFieldWithOptionsAndDefaults('city', $this->formLabels['city'], '30') ?>
                     </tr>
+                    <? }
+                    if (! in_array('state', $this->omits)) { ?>
                     <tr>
                         <?php $this->outputFieldWithOptionsAndDefaults('state', $this->formLabels['state'], '2') ?>
                     </tr>
+                    <? }
+                    if (! in_array('zip', $this->omits)) { ?>
                     <tr>
                         <?php $this->outputFieldWithOptionsAndDefaults('zip', $this->formLabels['zip'], '10') ?>
                     </tr>
+                    <? } ?>
                     </tbody>
                 </table>
                 <label for="listing"><?php _e('For Sale Items', 'yardsale') ?>*</label><br/>
@@ -397,6 +413,21 @@ class YSShortCodeForm extends YSShortCodeLoader {
                 <br/>
                 <input onclick="<?php echo $this->formJS ?>.fetchLatLong(); return <?php echo $this->formJS ?>.validate();"
                        type="submit" value="Submit"/>
+                <?php
+                foreach ($this->omits as $omit) {
+                    $value = '';
+                    if ($this->data[$omit] != $this->formDefaults[$omit]) {
+                        $value = $this->data[$omit];
+                    }
+                    else if (strpos($this->formDefaults[$omit], ',') === FALSE) {
+                        // Is a single default option so set it
+                        $value = $this->formDefaults[$omit];
+                    }
+                    ?>
+                    <input type="hidden" id="<?php echo $omit ?>" name="<?php echo $omit ?>" value="<?php echo $value ?>"/>
+                <?php
+                }
+                ?>
             </form>
         </div>
         <div class="map_div">
