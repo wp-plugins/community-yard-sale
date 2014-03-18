@@ -101,7 +101,7 @@ class YSShortCodeListing extends YSShortCodeLoader {
         }
 
         ?>
-    <div id="filter-form">Search: <input name="filter" id="filter" value="" size="30" type="text"></div>
+    <div id="filter-form">Filter: <input name="filter" id="filter" value="" size="30" type="text"></div>
     <p style="margin:0px">&nbsp;</p>
     <?php /*
     <div id="show-form">
