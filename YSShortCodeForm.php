@@ -389,22 +389,22 @@ class YSShortCodeForm extends YSShortCodeLoader {
                                    value="<?php echo isset($this->data['unit']) ? $this->data['unit'] : ''?>"
                                    onblur="<?php echo $this->formJS ?>.fetchLatLong()"/></td>
                     </tr>
-                    <? }
+                    <?php }
                     if (! in_array('city', $this->omits)) { ?>
                     <tr>
                         <?php $this->outputFieldWithOptionsAndDefaults('city', $this->formLabels['city'], '30') ?>
                     </tr>
-                    <? }
+                    <?php }
                     if (! in_array('state', $this->omits)) { ?>
                     <tr>
                         <?php $this->outputFieldWithOptionsAndDefaults('state', $this->formLabels['state'], '2') ?>
                     </tr>
-                    <? }
+                    <?php }
                     if (! in_array('zip', $this->omits)) { ?>
                     <tr>
                         <?php $this->outputFieldWithOptionsAndDefaults('zip', $this->formLabels['zip'], '10') ?>
                     </tr>
-                    <? } ?>
+                    <?php } ?>
                     </tbody>
                 </table>
                 <label for="listing"><?php _e('For Sale Items', 'yardsale') ?>*</label><br/>
