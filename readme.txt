@@ -62,7 +62,10 @@ both tags so that they reference the same data.
 
 == Changelog ==
 
-= 1.1
+= 1.1.1 =
+* Fixed internationalization. Added German translation.
+
+= 1.1 =
 * Via setting page, can change labels like "State" to "Province" on input form
 * Via setting page, can omit some fields on the input form
 * Fixed errors reported in WP_DEBUG mode

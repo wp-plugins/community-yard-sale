@@ -263,7 +263,7 @@ class YSOptionsManager {
      */
     public function settingsPage() {
         if (!current_user_can('manage_options')) {
-            wp_die(__('You do not have sufficient permissions to access this page.', 'yardsale'));
+            wp_die(__('You do not have sufficient permissions to access this page.', 'community-yard-sale'));
         }
 
         $optionMetaData = $this->getOptionMetaData();
@@ -281,26 +281,26 @@ class YSOptionsManager {
         $settingsGroup = get_class($this) . '-settings-group';
         ?>
         <div class="wrap">
-            <h2><?php _e('System Settings', 'yardsale'); ?></h2>
+            <h2><?php _e('System Settings', 'community-yard-sale'); ?></h2>
             <table class="form-table"><tbody>
-            <tr><td><?php _e('System', 'yardsale'); ?></td><td><?php echo php_uname(); ?></td></tr>
-            <tr><td><?php _e('PHP Version', 'yardsale'); ?></td>
+            <tr><td><?php _e('System', 'community-yard-sale'); ?></td><td><?php echo php_uname(); ?></td></tr>
+            <tr><td><?php _e('PHP Version', 'community-yard-sale'); ?></td>
                 <td><?php echo phpversion(); ?>
                 <?php
                 if (version_compare('5.2', phpversion()) > 0) {
                     echo '&nbsp;&nbsp;&nbsp;<span style="background-color: #ffcc00;">';
-                    _e('(WARNING: This plugin may not work properly with versions earlier than PHP 5.2)', 'yardsale');
+                    _e('(WARNING: This plugin may not work properly with versions earlier than PHP 5.2)', 'community-yard-sale');
                     echo '</span>';
                 }
                 ?>
                 </td>
             </tr>
-            <tr><td><?php _e('MySQL Version', 'yardsale'); ?></td>
+            <tr><td><?php _e('MySQL Version', 'community-yard-sale'); ?></td>
                 <td><?php echo $this->getMySqlVersion() ?>
                     <?php
                     echo '&nbsp;&nbsp;&nbsp;<span style="background-color: #ffcc00;">';
                     if (version_compare('5.0', $this->getMySqlVersion()) > 0) {
-                        _e('(WARNING: This plugin may not work properly with versions earlier than MySQL 5.0)', 'yardsale');
+                        _e('(WARNING: This plugin may not work properly with versions earlier than MySQL 5.0)', 'community-yard-sale');
                     }
                     echo '</span>';
                     ?>
@@ -308,7 +308,7 @@ class YSOptionsManager {
             </tr>
             </tbody></table>
 
-            <h2><?php echo $this->getPluginDisplayName(); echo ' '; _e('Settings', 'yardsale'); ?></h2>
+            <h2><?php echo $this->getPluginDisplayName(); echo ' '; _e('Settings', 'community-yard-sale'); ?></h2>
 
             <form method="post" action="">
             <?php settings_fields($settingsGroup); ?>
@@ -331,7 +331,7 @@ class YSOptionsManager {
                 </tbody></table>
                 <p class="submit">
                     <input type="submit" class="button-primary"
-                           value="<?php _e('Save Changes', 'yardsale') ?>"/>
+                           value="<?php _e('Save Changes', 'community-yard-sale') ?>"/>
                 </p>
             </form>
         </div>
@@ -389,22 +389,22 @@ class YSOptionsManager {
     protected function getOptionValueI18nString($optionValue) {
         switch ($optionValue) {
             case 'true':
-                return __('true', 'yardsale');
+                return __('true', 'community-yard-sale');
             case 'false':
-                return __('false', 'yardsale');
+                return __('false', 'community-yard-sale');
 
             case 'Administrator':
-                return __('Administrator', 'yardsale');
+                return __('Administrator', 'community-yard-sale');
             case 'Editor':
-                return __('Editor', 'yardsale');
+                return __('Editor', 'community-yard-sale');
             case 'Author':
-                return __('Author', 'yardsale');
+                return __('Author', 'community-yard-sale');
             case 'Contributor':
-                return __('Contributor', 'yardsale');
+                return __('Contributor', 'community-yard-sale');
             case 'Subscriber':
-                return __('Subscriber', 'yardsale');
+                return __('Subscriber', 'community-yard-sale');
             case 'Anyone':
-                return __('Anyone', 'yardsale');
+                return __('Anyone', 'community-yard-sale');
         }
         return $optionValue;
     }

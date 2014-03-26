@@ -2,7 +2,7 @@
 /*
    Plugin Name: Community Yard Sale
    Plugin URI: http://wordpress.org/extend/plugins/community-yard-sale/
-   Version: 1.1
+   Version: 1.1.1
    Author: Michael Simpson
    Description: Short codes for community yard sale entry form and listings. Uses Google Maps and a filterable table to show listings. | <a href="admin.php?page=YSPluginSettings">Settings</a>
    Text Domain: yardsale
@@ -20,9 +20,9 @@ $YS_minimalRequiredPhpVersion = '5.0';
 function YS_noticePhpVersionWrong() {
     global $YS_minimalRequiredPhpVersion;
     echo '<div class="updated fade">' .
-      __('Error: plugin "Community Yard Sale" requires a newer version of PHP to be running.',  'yardsale').
-            '<br/>' . __('Minimal version of PHP required: ', 'yardsale') . '<strong>' . $YS_minimalRequiredPhpVersion . '</strong>' .
-            '<br/>' . __('Your server\'s PHP version: ', 'yardsale') . '<strong>' . phpversion() . '</strong>' .
+      __('Error: plugin "Community Yard Sale" requires a newer version of PHP to be running.',  'community-yard-sale').
+            '<br/>' . __('Minimal version of PHP required: ', 'community-yard-sale') . '<strong>' . $YS_minimalRequiredPhpVersion . '</strong>' .
+            '<br/>' . __('Your server\'s PHP version: ', 'community-yard-sale') . '<strong>' . phpversion() . '</strong>' .
          '</div>';
 }
 
@@ -45,8 +45,7 @@ function YS_PhpVersionCheck() {
  * @return void
  */
 function YSPlugin_i18n_init() {
-    $pluginDir = dirname(plugin_basename(__FILE__));
-    load_plugin_textdomain('yardsale', false, $pluginDir . '/languages/');
+    load_plugin_textdomain('community-yard-sale', false, 'community-yard-sale/languages/');
 }
 
 

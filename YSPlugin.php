@@ -26,8 +26,8 @@ class YSPlugin extends YSLifeCycle {
     public function getOptionMetaData() {
         return array(
             //'_version' => array('Installed Version'), // For testing upgrades
-            //'Donated' => array(__('I have donated to this plugin', 'yardsale'), 'false', 'true'),
-            'DropOnUninstall' => array(__('Drop this plugin\'s Database table on uninstall', 'yardsale'), 'false', 'true')
+            //'Donated' => array(__('I have donated to this plugin', 'community-yard-sale'), 'false', 'true'),
+            'DropOnUninstall' => array(__('Drop this plugin\'s Database table on uninstall', 'community-yard-sale'), 'false', 'true')
         );
     }
 
@@ -167,7 +167,7 @@ class YSPlugin extends YSLifeCycle {
 
     public function settingsPage() {
         if (!current_user_can('manage_options')) {
-            wp_die(__('You do not have sufficient permissions to access this page.', 'yardsale'));
+            wp_die(__('You do not have sufficient permissions to access this page.', 'community-yard-sale'));
         }
 
 
@@ -206,7 +206,7 @@ class YSPlugin extends YSLifeCycle {
                 <td width="50%" align="center" valign="center">
                     <a target="_support"
                        href="http://wordpress.org/support/plugin/community-yard-sale">
-                        <strong><?php _e('Plugin Support', 'yardsale') ?></strong>
+                        <strong><?php _e('Plugin Support', 'community-yard-sale') ?></strong>
                     </a>
                 </td>
             </tr>
@@ -224,9 +224,9 @@ class YSPlugin extends YSLifeCycle {
     <div class="yardsale_config">
         <div id="yardsale_config_tabs">
             <ul>
-                <li><a href="#yardsale_config-1">Build Short Codes</a></li>
-                <li><a href="#yardsale_config-2">Delete Entry</a></li>
-                <li><a href="#yardsale_config-3">Options</a></li>
+                <li><a href="#yardsale_config-1"><?php _e('Build Short Codes', 'community-yard-sale');?></a></li>
+                <li><a href="#yardsale_config-2"><?php _e('Delete Entry', 'community-yard-sale');?></a></li>
+                <li><a href="#yardsale_config-3"><?php _e('Options', 'community-yard-sale');?></a></li>
             </ul>
             <div id="yardsale_config-1">
                 <?php $this->outputShortCodeBuilder(); ?>
@@ -247,7 +247,7 @@ class YSPlugin extends YSLifeCycle {
     public function outputDeleteForms() {
         ?>
     <p>
-        <?php _e('Delete all entries associated with an event tag', 'yardsale'); ?>
+        <?php _e('Delete all entries associated with an event tag', 'community-yard-sale'); ?>
     </p>
     <p>
         <label for="ysevent">Event</label>
@@ -272,7 +272,7 @@ class YSPlugin extends YSLifeCycle {
 
     <p style="margin-top: 2em;">
         <?php _e('Enter the Yard Sale ID of the entry you wish to delete. (Example: 1314383685_9253)<br/>
-    This ID appears in the edit URL sent to the user after he registers (Example: http://&lt;page-url&gt;?ysid=<strong>1314383685_9253</strong>)', 'yardsale'); ?>
+    This ID appears in the edit URL sent to the user after he registers (Example: http://&lt;page-url&gt;?ysid=<strong>1314383685_9253</strong>)', 'community-yard-sale'); ?>
     </p>
     <p>
         <label for="ysid">ID</label>
@@ -298,10 +298,10 @@ class YSPlugin extends YSLifeCycle {
             global $wpdb;
             $sql = "DELETE FROM " . $this->getTableName() . " WHERE `id` = %s LIMIT 1";
             $result = $wpdb->query($wpdb->prepare($sql, $_REQUEST['id']));
-            echo ($result === false) ? __('MySQL error', 'yardsale') : "$result " . __('row(s) deleted', 'yardsale');
+            echo ($result === false) ? __('MySQL error', 'community-yard-sale') : "$result " . __('row(s) deleted', 'community-yard-sale');
         }
         else {
-            _e('Error: No ID given', 'yardsale');
+            _e('Error: No ID given', 'community-yard-sale');
         }
         die();
     }
@@ -317,10 +317,10 @@ class YSPlugin extends YSLifeCycle {
             global $wpdb;
             $sql = "DELETE FROM " . $this->getTableName() . " WHERE `event` = %s";
             $result = $wpdb->query($wpdb->prepare($sql, $_REQUEST['event']));
-            echo ($result === false) ? __('MySQL error', 'yardsale') : "$result " . __('row(s) deleted', 'yardsale');
+            echo ($result === false) ? __('MySQL error', 'community-yard-sale') : "$result " . __('row(s) deleted', 'community-yard-sale');
         }
         else {
-            _e('Error: No event tag given', 'yardsale');
+            _e('Error: No event tag given', 'community-yard-sale');
         }
         die();
     }
@@ -338,9 +338,9 @@ class YSPlugin extends YSLifeCycle {
 
     public function outputShortCodeBuilder() {
         ?>
-    <h3><?php _e('Fill in the options in the tabs below to generate short codes to put on your pages', 'yardsale') ?></h3>
+    <h3><?php _e('Fill in the options in the tabs below to generate short codes to put on your pages', 'community-yard-sale') ?></h3>
     <p>
-        <?php _e('Place the <strong>[yardsale-form]</strong> short code on a page to display the yard sale entry form', 'yardsale') ?>
+        <?php _e('Place the <strong>[yardsale-form]</strong> short code on a page to display the yard sale entry form', 'community-yard-sale') ?>
     </p>
 
     <div id="sc_form_result_div">
@@ -349,7 +349,7 @@ class YSPlugin extends YSLifeCycle {
     </div>
 
     <p>
-        <?php _e('Place the <strong>[yardsale-listing]</strong> short code on a <strong>different page</strong> to display the yard sale listings', 'yardsale') ?>
+        <?php _e('Place the <strong>[yardsale-listing]</strong> short code on a <strong>different page</strong> to display the yard sale listings', 'community-yard-sale') ?>
     </p>
     <div id="sc_listing_result_div">
         <pre style="white-space: -moz-pre-wrap; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: pre-wrap; word-wrap: break-word;"><code
@@ -376,13 +376,13 @@ class YSPlugin extends YSLifeCycle {
     <div class="yardsale_shortcode_config">
         <div id="yardsale_shortcode_tabs">
             <ul>
-                <li><a href="#yardsale_shortcode_tab-1"><?php _e('Map Location', 'yardsale') ?></a></li>
-                <li><a href="#yardsale_shortcode_tab-2"><?php _e('Map Size', 'yardsale') ?></a></li>
-                <li><a href="#yardsale_shortcode_tab-3"><?php _e('Event Tag', 'yardsale') ?></a></li>
-                <li><a href="#yardsale_shortcode_tab-4"><?php _e('Input Form Pick Lists (Optional)', 'yardsale') ?></a></li>
-                <li><a href="#yardsale_shortcode_tab-5"><?php _e('Input Form Defaults (Optional)', 'yardsale') ?></a></li>
-                <li><a href="#yardsale_shortcode_tab-6"><?php _e('Input Form Labels (Optional)', 'yardsale') ?></a></li>
-                <li><a href="#yardsale_shortcode_tab-7"><?php _e('Hide On Print (Optional)', 'yardsale') ?></a></li>
+                <li><a href="#yardsale_shortcode_tab-1"><?php _e('Map Location', 'community-yard-sale') ?></a></li>
+                <li><a href="#yardsale_shortcode_tab-2"><?php _e('Map Size', 'community-yard-sale') ?></a></li>
+                <li><a href="#yardsale_shortcode_tab-3"><?php _e('Event Tag', 'community-yard-sale') ?></a></li>
+                <li><a href="#yardsale_shortcode_tab-4"><?php _e('Input Form Pick Lists (Optional)', 'community-yard-sale') ?></a></li>
+                <li><a href="#yardsale_shortcode_tab-5"><?php _e('Input Form Defaults (Optional)', 'community-yard-sale') ?></a></li>
+                <li><a href="#yardsale_shortcode_tab-6"><?php _e('Input Form Labels (Optional)', 'community-yard-sale') ?></a></li>
+                <li><a href="#yardsale_shortcode_tab-7"><?php _e('Hide On Print (Optional)', 'community-yard-sale') ?></a></li>
             </ul>
             <div id="yardsale_shortcode_tab-1">
                 <?php
@@ -396,16 +396,16 @@ class YSPlugin extends YSLifeCycle {
                     scMap.initGoogleMap(<?php echo $centerLat ?>, <?php echo $centerLng ?>, <?php echo $zoom ?>);
                 </script>
 
-                <p><?php _e('Center The Google Map to display your community yard sale area.', 'yardsale') ?></p>
+                <p><?php _e('Center The Google Map to display your community yard sale area.', 'community-yard-sale') ?></p>
                 <ul>
-                    <li><?php _e('Type in an address', 'yardsale'); ?></li>
-                    <li><?php _e('Click on the map to adjust the center', 'yardsale'); ?></li>
+                    <li><?php _e('Type in an address', 'community-yard-sale'); ?></li>
+                    <li><?php _e('Click on the map to adjust the center', 'community-yard-sale'); ?></li>
                 </ul>
                 <p>
-                    <label for="sc_address"><?php _e('Address', 'yardsale') ?></label>
+                    <label for="sc_address"><?php _e('Address', 'community-yard-sale') ?></label>
                     <input id="sc_address" type="text" size="50"
                            onchange="scMap.centerMapOnAddress(jQuery('#sc_address').val())"/>
-                    <button onclick="scMap.centerMapOnAddress(jQuery('#sc_address').val())"><?php _e('Center Map', 'yardsale') ?></button>
+                    <button onclick="scMap.centerMapOnAddress(jQuery('#sc_address').val())"><?php _e('Center Map', 'community-yard-sale') ?></button>
                 </p>
 
                 <div id="map_div">
@@ -414,41 +414,41 @@ class YSPlugin extends YSLifeCycle {
 
 
                 <p>
-                    <label for="sc_lat"><?php _e('Latitude', 'yardsale') ?></label>
+                    <label for="sc_lat"><?php _e('Latitude', 'community-yard-sale') ?></label>
                     <input id="sc_lat" type="text" size="20" value="<?php echo $centerLat ?>" onkeyup="ysCreateShortCodes()"
                            onchange="scMap.centerMapOnLatLng()"/>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <label for="sc_lng"><?php _e('Longitude', 'yardsale') ?></label>
+                    <label for="sc_lng"><?php _e('Longitude', 'community-yard-sale') ?></label>
                     <input id="sc_lng" type="text" size="20" value="<?php echo $centerLng ?>" onkeyup="ysCreateShortCodes()"
                            onchange="scMap.centerMapOnLatLng()"/>
                     &nbsp;&nbsp;&nbsp;&nbsp;
-                    <label for="sc_zoom"><?php _e('Zoom', 'yardsale') ?></label>
+                    <label for="sc_zoom"><?php _e('Zoom', 'community-yard-sale') ?></label>
                     <input id="sc_zoom" type="text" size="5" value="<?php echo $zoom ?>" onchange="scMap.zoomMap()"/>
                 </p>
             </div>
 
             <div id="yardsale_shortcode_tab-2">
-                <p><?php _e('Set the Google Map height and width. Use pixels or percentage width.', 'yardsale') ?></p>
+                <p><?php _e('Set the Google Map height and width. Use pixels or percentage width.', 'community-yard-sale') ?></p>
                 <ul>
-                    <li><?php _e('Warning: if both height and width are percentages then the map may not display', 'yardsale'); ?></li>
-                    <li><?php _e('Setting a height in pixels and a width=100% is a common choice', 'yardsale'); ?></li>
-                    <li><?php _e('Note: You can tweak these values later directly in the short code after you have put the short code on a page and looked at it', 'yardsale'); ?></li>
+                    <li><?php _e('Warning: if both height and width are percentages then the map may not display', 'community-yard-sale'); ?></li>
+                    <li><?php _e('Setting a height in pixels and a width=100% is a common choice', 'community-yard-sale'); ?></li>
+                    <li><?php _e('Note: You can tweak these values later directly in the short code after you have put the short code on a page and looked at it', 'community-yard-sale'); ?></li>
                 </ul>
 
                 <table cellspacing="10px">
                     <tr>
-                        <td><label for="sc_form_map_height"><?php _e('Form Map Height', 'yardsale') ?></label></td>
+                        <td><label for="sc_form_map_height"><?php _e('Form Map Height', 'community-yard-sale') ?></label></td>
                         <td><input id="sc_form_map_height" type="text" size="10" value="500px"
                                    onkeyup="ysCreateShortCodes()"/></td>
-                        <td><label for="sc_form_map_width"><?php _e('Form Map Width', 'yardsale') ?></label></td>
+                        <td><label for="sc_form_map_width"><?php _e('Form Map Width', 'community-yard-sale') ?></label></td>
                         <td><input id="sc_form_map_width" type="text" size="10" value="100%"
                                    onkeyup="ysCreateShortCodes()"/></td>
                     </tr>
                     <tr>
-                        <td><label for="sc_listing_map_height"><?php _e('Listing Map Height', 'yardsale') ?></label></td>
+                        <td><label for="sc_listing_map_height"><?php _e('Listing Map Height', 'community-yard-sale') ?></label></td>
                         <td><input id="sc_listing_map_height" type="text" size="10" value="500px"
                                    onkeyup="ysCreateShortCodes()"/></td>
-                        <td><label for="sc_listing_map_width"><?php _e('Listing Map Width', 'yardsale') ?></label></td>
+                        <td><label for="sc_listing_map_width"><?php _e('Listing Map Width', 'community-yard-sale') ?></label></td>
                         <td><input id="sc_listing_map_width" type="text" size="10" value="100%"
                                    onkeyup="ysCreateShortCodes()"/></td>
                     </tr>
@@ -456,56 +456,56 @@ class YSPlugin extends YSLifeCycle {
             </div>
 
             <div id="yardsale_shortcode_tab-3">
-                <p><?php _e('Give your event a unique tag. This is used to distinguish different community yard sale events. Your pair of short codes will need to have the same event tag.', 'yardsale') ?></p>
+                <p><?php _e('Give your event a unique tag. This is used to distinguish different community yard sale events. Your pair of short codes will need to have the same event tag.', 'community-yard-sale') ?></p>
 
                 <p>
-                    <label for="sc_event"><?php _e('Event Tag', 'yardsale') ?></label>
+                    <label for="sc_event"><?php _e('Event Tag', 'community-yard-sale') ?></label>
                     <input id="sc_event" type="text" size="30" value="yardsale" onkeyup="ysCreateShortCodes()"/>
                 </p>
             </div>
 
             <div id="yardsale_shortcode_tab-4">
-                <p><?php _e('Optional: if you want any of City, State, or Zip fields to be a pick-list on the entry form instead of a text field, enter a comma-delimited list of values.', 'yardsale') ?></p>
+                <p><?php _e('Optional: if you want any of City, State, or Zip fields to be a pick-list on the entry form instead of a text field, enter a comma-delimited list of values.', 'community-yard-sale') ?></p>
 
                 <table cellspacing="10px">
                     <tr>
-                        <td><label for="sc_city"><?php _e('City', 'yardsale') ?></label></td>
+                        <td><label for="sc_city"><?php _e('City', 'community-yard-sale') ?></label></td>
                         <td><input id="sc_city" type="text" size="50" onkeyup="ysCreateShortCodes()"/></td>
                     </tr>
                     <tr>
-                        <td><label for="sc_state"><?php _e('State', 'yardsale') ?></label></td>
+                        <td><label for="sc_state"><?php _e('State', 'community-yard-sale') ?></label></td>
                         <td><input id="sc_state" type="text" size="50" onkeyup="ysCreateShortCodes()"/></td>
-                        <td><?php _e('Example: "DC,MD,VA"', 'yardsale') ?></td>
+                        <td><?php _e('Example: "DC,MD,VA"', 'community-yard-sale') ?></td>
                     </tr>
                     <tr>
-                        <td><label for="sc_zip"><?php _e('Zip', 'yardsale') ?></label></td>
+                        <td><label for="sc_zip"><?php _e('Zip', 'community-yard-sale') ?></label></td>
                         <td><input id="sc_zip" type="text" size="50" onkeyup="ysCreateShortCodes()"/></td>
-                        <td><?php _e('Example: "12345,12346,12347"', 'yardsale') ?></td>
+                        <td><?php _e('Example: "12345,12346,12347"', 'community-yard-sale') ?></td>
                     </tr>
                 </table>
             </div>
 
             <div id="yardsale_shortcode_tab-5">
-                <p><?php _e('Optional: if you would like the entry form to pre-populate fields with default values, enter them here. If you are also setting field to be pick-lists, be sure that the values you put in this section are included in the comma-delimited list. That option will be selected by default in the pick-list', 'yardsale') ?></p>
+                <p><?php _e('Optional: if you would like the entry form to pre-populate fields with default values, enter them here. If you are also setting field to be pick-lists, be sure that the values you put in this section are included in the comma-delimited list. That option will be selected by default in the pick-list', 'community-yard-sale') ?></p>
 
                 <table cellspacing="10px">
                     <tr>
-                        <td><label for="sc_citydefault"><?php _e('City', 'yardsale') ?></label></td>
+                        <td><label for="sc_citydefault"><?php _e('City', 'community-yard-sale') ?></label></td>
                         <td><input id="sc_citydefault" type="text" size="40" onkeyup="ysCreateShortCodes()"/></td>
                     </tr>
                     <tr>
-                        <td><label for="sc_statedefault"><?php _e('State', 'yardsale') ?></label></td>
+                        <td><label for="sc_statedefault"><?php _e('State', 'community-yard-sale') ?></label></td>
                         <td><input id="sc_statedefault" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
                     </tr>
                     <tr>
-                        <td><label for="sc_zipdefault"><?php _e('Zip', 'yardsale') ?></label></td>
+                        <td><label for="sc_zipdefault"><?php _e('Zip', 'community-yard-sale') ?></label></td>
                         <td><input id="sc_zipdefault" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
                     </tr>
                 </table>
             </div>
 
             <div id="yardsale_shortcode_tab-6">
-                <p><?php _e('Optional: Instead of the default labels like "State, Zip" you may wish to use other labels such as "Province, Postal Code". Do not omit fields if you set defaults for them', 'yardsale') ?></p>
+                <p><?php _e('Optional: Instead of the default labels like "State, Zip" you may wish to use other labels such as "Province, Postal Code". Do not omit fields if you set defaults for them', 'community-yard-sale') ?></p>
 
                 <table cellspacing="10px">
                     <thead>
@@ -517,32 +517,32 @@ class YSPlugin extends YSLifeCycle {
                     </thead>
                     <tbody>
                         <tr>
-                            <td><label for="sc_emaillabel"><?php _e('Email', 'yardsale') ?></label></td>
+                            <td><label for="sc_emaillabel"><?php _e('Email', 'community-yard-sale') ?></label></td>
                             <td><input id="sc_emaillabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
                             <td><input type="checkbox" id="sc_emailshow" checked disabled></td>
                         </tr>
                         <tr>
-                            <td><label for="sc_streetlabel"><?php _e('Street', 'yardsale') ?></label></td>
+                            <td><label for="sc_streetlabel"><?php _e('Street', 'community-yard-sale') ?></label></td>
                             <td><input id="sc_streetlabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
                             <td><input type="checkbox" id="sc_streetshow" onclick="ysCreateShortCodes()" checked disabled></td>
                         </tr>
                         <tr>
-                            <td><label for="sc_unitlabel"><?php _e('Unit/Apartment', 'yardsale') ?></label></td>
+                            <td><label for="sc_unitlabel"><?php _e('Unit/Apartment', 'community-yard-sale') ?></label></td>
                             <td><input id="sc_unitlabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
                             <td><input type="checkbox" id="sc_unitshow" onclick="ysCreateShortCodes()" checked></td>
                         </tr>
                         <tr>
-                            <td><label for="sc_citylabel"><?php _e('City', 'yardsale') ?></label></td>
+                            <td><label for="sc_citylabel"><?php _e('City', 'community-yard-sale') ?></label></td>
                             <td><input id="sc_citylabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
                             <td><input type="checkbox" id="sc_cityshow" onclick="ysCreateShortCodes()" checked></td>
                         </tr>
                         <tr>
-                            <td><label for="sc_statelabel"><?php _e('State', 'yardsale') ?></label></td>
+                            <td><label for="sc_statelabel"><?php _e('State', 'community-yard-sale') ?></label></td>
                             <td><input id="sc_statelabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
                             <td><input type="checkbox" id="sc_stateshow" onclick="ysCreateShortCodes()" checked></td>
                         </tr>
                         <tr>
-                            <td><label for="sc_ziplabel"><?php _e('Zip', 'yardsale') ?></label></td>
+                            <td><label for="sc_ziplabel"><?php _e('Zip', 'community-yard-sale') ?></label></td>
                             <td><input id="sc_ziplabel" type="text" size="20" onkeyup="ysCreateShortCodes()"/></td>
                             <td><input type="checkbox" id="sc_zipshow" onclick="ysCreateShortCodes()" checked></td>
                         </tr>
@@ -551,9 +551,9 @@ class YSPlugin extends YSLifeCycle {
             </div>
 
             <div id="yardsale_shortcode_tab-7">
-                <p><?php _e('Optional: When printing a listing page, you may wish to hide certain HTML DIVs (such as a header or left nav) to save paper. Put a comma-delimited list of HTML IDs to hide. This is not guaranteed to work.', 'yardsale') ?></p>
+                <p><?php _e('Optional: When printing a listing page, you may wish to hide certain HTML DIVs (such as a header or left nav) to save paper. Put a comma-delimited list of HTML IDs to hide. This is not guaranteed to work.', 'community-yard-sale') ?></p>
                 <p>
-                    <label for="sc_hideonprint"><?php _e('HTML IDs to hide on print', 'yardsale') ?></label>
+                    <label for="sc_hideonprint"><?php _e('HTML IDs to hide on print', 'community-yard-sale') ?></label>
                     <input id="sc_hideonprint" type="text" size="50" onkeyup="ysCreateShortCodes()" />
                 </p>
             </div>

@@ -80,17 +80,21 @@ class YSShortCodeForm extends YSShortCodeLoader {
     );
 
     /** @var array ($key => $value) labels for city, state, zip */
-    var $formLabels = array(
-        'email' => 'Email',
-        'street' => 'Street',
-        'unit' => 'Unit/Apartment',
-        'city' => 'City',
-        'state' => 'State',
-        'zip' => 'Zip'
-    );
+    var $formLabels;
 
     /** @var array entries to be omitted from the form */
     var $omits = array();
+
+    function YSShortCodeForm() {
+        // Have to init in constructor due to "__" calls
+        $this->formLabels = array(
+                'email' => __('Email', 'community-yard-sale'),
+                'street' => __('Street', 'community-yard-sale'),
+                'unit' => __('Unit/Apartment', 'community-yard-sale'),
+                'city' => __('City', 'community-yard-sale'),
+                'state' => __('State', 'community-yard-sale'),
+                'zip' => __('Zip', 'community-yard-sale'));
+    }
 
     /**
      * @param  $atts array shortcode inputs associative array
@@ -258,7 +262,7 @@ class YSShortCodeForm extends YSShortCodeLoader {
             `listing` = '$listing'
         WHERE `id` = '$ysid'");
 
-                $this->messageToUser = $rows ? __('Your entry has been updated', 'yardsale')
+                $this->messageToUser = $rows ? __('Your entry has been updated', 'community-yard-sale')
                         : __('There was a problem updating your entry. Try again or contact an administrator');
                 $this->showForm = false;
             }
@@ -271,7 +275,7 @@ class YSShortCodeForm extends YSShortCodeLoader {
                 if ($rows) {
                     $this->messageToUser = __('There is already an entry for that address. ' .
                                               'If you are updating an entry, use the link sent to you in an email when you first entered your listing. ' .
-                                              'If you share the address, use a different unit number', 'yardsale');
+                                              'If you share the address, use a different unit number', 'community-yard-sale');
 
                 }
                 else {
@@ -283,25 +287,25 @@ class YSShortCodeForm extends YSShortCodeLoader {
 
 
                     if ($rows) {
-                        $this->messageToUser = __('Your listing has been saved. An email will be send to you with a link you can use to edit your entry if you need to.', 'yardsale');
+                        $this->messageToUser = __('Your listing has been saved. An email will be send to you with a link you can use to edit your entry if you need to.', 'community-yard-sale');
 
                         $editUrl = get_permalink();
                         $editUrl .= (strpos($editUrl, '?') === false) ? "?ysid=$time" : "&ysid=$time";
 
                         $deleteUrl = $this->plugin->getDeleteIdUrl() . $time;
 
-                        $msg = '<p>' . __('Thank you for your community yard sale entry. Use the following links to edit or delete your entry.', 'yardsale') . '</p>' .
-                                "<a href=\"$editUrl\">" . __('Edit Yard Sale Entry', 'yardsale') . '</a><br/><br/>' .
-                                "<a href=\"$deleteUrl\">" . __('Delete Yard Sale Entry', 'yardsale') . '</a><br/><br/>';
+                        $msg = '<p>' . __('Thank you for your community yard sale entry. Use the following links to edit or delete your entry.', 'community-yard-sale') . '</p>' .
+                                "<a href=\"$editUrl\">" . __('Edit Yard Sale Entry', 'community-yard-sale') . '</a><br/><br/>' .
+                                "<a href=\"$deleteUrl\">" . __('Delete Yard Sale Entry', 'community-yard-sale') . '</a><br/><br/>';
 
-                        $headers = array('From: ' . __('Yard Sale No-Reply', 'yardsale') .
+                        $headers = array('From: ' . __('Yard Sale No-Reply', 'community-yard-sale') .
                                          ' <no-reply@' . $this->plugin->getEmailDomain() . '>' ,
                                          'Content-Type: text/html');
                         $h = implode("\r\n", $headers) . "\r\n";
-                        wp_mail($_POST['email'], __('Yard Sale Entry', 'yardsale'), $msg, $h);
+                        wp_mail($_POST['email'], __('Yard Sale Entry', 'community-yard-sale'), $msg, $h);
                     }
                     else {
-                        $this->messageToUser = __('There was a problem saving your entry. Try again or contact an administrator', 'yardsale');
+                        $this->messageToUser = __('There was a problem saving your entry. Try again or contact an administrator', 'community-yard-sale');
                     }
                 }
 
@@ -360,7 +364,7 @@ class YSShortCodeForm extends YSShortCodeLoader {
             ?>
         <div class="entry_div">
             <p>
-                <?php _e('If you wish to edit a listing that you have already made, use the link sent to you in email when you created it.', 'yardsale'); ?>
+                <?php _e('If you wish to edit a listing that you have already made, use the link sent to you in email when you created it.', 'community-yard-sale'); ?>
             </p>
 
             <form id="<?php echo $this->formId ?>" action="" method="post">
@@ -407,7 +411,7 @@ class YSShortCodeForm extends YSShortCodeLoader {
                     <?php } ?>
                     </tbody>
                 </table>
-                <label for="listing"><?php _e('For Sale Items', 'yardsale') ?>*</label><br/>
+                <label for="listing"><?php _e('For Sale Items', 'community-yard-sale') ?>*</label><br/>
                 <textarea name="listing" id="listing" rows="10"
                           cols="30"><?php echo isset($this->data['listing']) ? $this->data['listing'] : ''?></textarea>
                 <br/>
@@ -416,12 +420,13 @@ class YSShortCodeForm extends YSShortCodeLoader {
                 <?php
                 foreach ($this->omits as $omit) {
                     $value = '';
-                    if ($this->data[$omit] != $this->formDefaults[$omit]) {
+                    $defaultValues = isset($this->formDefaults[$omit]) ? $this->formDefaults[$omit] : '';
+                    if ($this->data[$omit] != $defaultValues) {
                         $value = $this->data[$omit];
                     }
-                    else if (strpos($this->formDefaults[$omit], ',') === FALSE) {
+                    else if (strpos($defaultValues, ',') === FALSE) {
                         // Is a single default option so set it
-                        $value = $this->formDefaults[$omit];
+                        $value = $defaultValues;
                     }
                     ?>
                     <input type="hidden" id="<?php echo $omit ?>" name="<?php echo $omit ?>" value="<?php echo $value ?>"/>
