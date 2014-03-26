@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  \n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/community-yard-sale\n"
-"POT-Creation-Date: 2014-03-26 23:03:16+00:00\n"
+"POT-Creation-Date: 2014-03-26 23:27:34+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -190,7 +190,7 @@ msgstr ""
 msgid "Click on the map to adjust the center"
 msgstr ""
 
-#: YSPlugin.php:405
+#: YSPlugin.php:405 YSShortCodeListing.php:127
 msgid "Address"
 msgstr ""
 
@@ -384,8 +384,20 @@ msgstr ""
 msgid "For Sale Items"
 msgstr ""
 
-#: YSShortCodeListing.php:104
+#: YSShortCodeListing.php:103
 msgid "Filter: "
+msgstr ""
+
+#: YSShortCodeListing.php:118
+msgid "Powered By Community Yard Sale Plugin"
+msgstr ""
+
+#: YSShortCodeListing.php:128
+msgid "Items"
+msgstr ""
+
+#: YSShortCodeListing.php:128
+msgid "(Click table cell to view on map)"
 msgstr ""
 
 #: yardsale.php:23
