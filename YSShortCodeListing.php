@@ -93,7 +93,6 @@ class YSShortCodeListing extends YSShortCodeLoader {
                 foreach ($hideIds as $id) {
                     if ($id) {
                         echo "    #$id { display: none; !important }\n";
-                        // todo: output a style
                     }
                 }
                 echo "}\n</style>\n";
@@ -116,7 +115,7 @@ class YSShortCodeListing extends YSShortCodeLoader {
     </div>
     <div style="font-size: xx-small; text-align: right;">
         <a target="_blank" href="http://wordpress.org/extend/plugins/community-yard-sale/">
-            Powered By Community Yard Sale Plugin
+            <?php _e('Powered By Community Yard Sale Plugin', 'community-yard-sale'); ?>
         </a>
     </div>
 
@@ -125,8 +124,8 @@ class YSShortCodeListing extends YSShortCodeLoader {
             <thead>
             <tr>
                 <th></th>
-                <th>Address</th>
-                <th>Items<br/><span style="font-size:8pt">(Click table cell to view on map)</span></th>
+                <th><?php _e('Address', 'community-yard-sale'); ?></th>
+                <th><?php _e('Items', 'community-yard-sale'); ?><br/><span style="font-size:8pt"><?php _e('(Click table cell to view on map)', 'community-yard-sale'); ?></span></th>
             </tr>
             </thead>
             <tbody>

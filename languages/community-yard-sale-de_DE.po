@@ -4,15 +4,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: community-yard-sale\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/community-yard-sale\n"
-"POT-Creation-Date: 2014-03-17 17:03:30+00:00\n"
+"POT-Creation-Date: 2014-03-26 23:03:16+00:00\n"
+"PO-Revision-Date: 2014-03-26 19:25-0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-03-20 08:07-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"Language: de_DE\n"
 "X-Generator: Poedit 1.6.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
@@ -99,6 +99,18 @@ msgstr "Löschen Sie die Plugin Datenbank beim Deinstallieren"
 #: YSPlugin.php:209
 msgid "Plugin Support"
 msgstr "Plugin Hilfe"
+
+#: YSPlugin.php:227
+msgid "Build Short Codes"
+msgstr "Bauen Kurzcode"
+
+#: YSPlugin.php:228
+msgid "Delete Entry"
+msgstr "Flohmarkt Eintrag löschen"
+
+#: YSPlugin.php:229
+msgid "Options"
+msgstr "Optionen"
 
 #: YSPlugin.php:250
 msgid "Delete all entries associated with an event tag"
@@ -277,19 +289,19 @@ msgstr ""
 "als Auswahl angeboten wird, tragen Sie die Wahlmöglichkeiten mit einem Komma "
 "getrennt ein"
 
-#: YSPlugin.php:472 YSPlugin.php:493 YSPlugin.php:535
+#: YSPlugin.php:472 YSPlugin.php:493 YSPlugin.php:535 YSShortCodeForm.php:94
 msgid "City"
 msgstr "Ortschaft"
 
-#: YSPlugin.php:476 YSPlugin.php:497 YSPlugin.php:540
+#: YSPlugin.php:476 YSPlugin.php:497 YSPlugin.php:540 YSShortCodeForm.php:95
 msgid "State"
 msgstr "Bundesland/Region"
 
 #: YSPlugin.php:478
 msgid "Example: \"DC,MD,VA\""
-msgstr "Beispiel: \"DC,MD,VA\""
+msgstr "Beispiel: \"BY, HH, SN\""
 
-#: YSPlugin.php:481 YSPlugin.php:501 YSPlugin.php:545
+#: YSPlugin.php:481 YSPlugin.php:501 YSPlugin.php:545 YSShortCodeForm.php:96
 msgid "Zip"
 msgstr "Postleitzahl"
 
@@ -331,15 +343,15 @@ msgstr "Anstatt dessen gebrauchen"
 msgid "Show on Form"
 msgstr "Zeige auf dem Formular"
 
-#: YSPlugin.php:520
+#: YSPlugin.php:520 YSShortCodeForm.php:91
 msgid "Email"
 msgstr "Email"
 
-#: YSPlugin.php:525
+#: YSPlugin.php:525 YSShortCodeForm.php:92
 msgid "Street"
 msgstr "Strasse"
 
-#: YSPlugin.php:530
+#: YSPlugin.php:530 YSShortCodeForm.php:93
 msgid "Unit/Apartment"
 msgstr "Hausnummer"
 
@@ -359,11 +371,11 @@ msgstr ""
 msgid "HTML IDs to hide on print"
 msgstr "HTML IDs beim Druck verbergen"
 
-#: YSShortCodeForm.php:261
+#: YSShortCodeForm.php:265
 msgid "Your entry has been updated"
 msgstr "Ihr Eintrag wurde aktualisiert."
 
-#: YSShortCodeForm.php:262
+#: YSShortCodeForm.php:266
 msgid ""
 "There was a problem updating your entry. Try again or contact an "
 "administrator"
@@ -371,7 +383,7 @@ msgstr ""
 "Es gab ein kleine Problem mit dem Update Ihres Eintrags. Bitte versuchen Sie "
 "es nochmals oder kontaktieren  Sie den Administrator"
 
-#: YSShortCodeForm.php:286
+#: YSShortCodeForm.php:290
 msgid ""
 "Your listing has been saved. An email will be send to you with a link you "
 "can use to edit your entry if you need to."
@@ -379,7 +391,7 @@ msgstr ""
 "Ihre Liste wurde erfolgreich gespeichert. Eine Email ist auf dem Weg zu "
 "Ihnen mit einem Link, den Sie zur Bearbeitung des Eintrags verwenden können."
 
-#: YSShortCodeForm.php:293
+#: YSShortCodeForm.php:297
 msgid ""
 "Thank you for your community yard sale entry. Use the following links to "
 "edit or delete your entry."
@@ -387,30 +399,30 @@ msgstr ""
 "Vielen Dank für Eintrag für den gemeinschaftlichen Flohmarkt. Bitte benützen "
 "Sie die folgenden Links um den Eintrag zu bearbeiten oder zu löschen"
 
-#: YSShortCodeForm.php:294
+#: YSShortCodeForm.php:298
 msgid "Edit Yard Sale Entry"
 msgstr "Flohmarkt Eintrag bearbeiten"
 
-#: YSShortCodeForm.php:295
+#: YSShortCodeForm.php:299
 msgid "Delete Yard Sale Entry"
-msgstr " Flohmarkt Eintrag löschen"
+msgstr "Flohmarkt Eintrag löschen"
 
-#: YSShortCodeForm.php:297
+#: YSShortCodeForm.php:301
 msgid "Yard Sale No-Reply"
 msgstr "Flohmarkt Keine-Antwort"
 
-#: YSShortCodeForm.php:301
+#: YSShortCodeForm.php:305
 msgid "Yard Sale Entry"
 msgstr "Flohmarkt Eintrag"
 
-#: YSShortCodeForm.php:304
+#: YSShortCodeForm.php:308
 msgid ""
 "There was a problem saving your entry. Try again or contact an administrator"
 msgstr ""
 "Leider konnte Ihr Eintrag nicht gespeichert werden. Bitte versuchen Sie es "
 "später nochmals oder kontaktieren Sie den Administrator"
 
-#: YSShortCodeForm.php:363
+#: YSShortCodeForm.php:367
 msgid ""
 "If you wish to edit a listing that you have already made, use the link sent "
 "to you in email when you created it."
@@ -418,9 +430,13 @@ msgstr ""
 "Wenn sie die von Ihnen erstellte Liste verändern möchten, bitte brauchen sie "
 "den Link der Ihnen auf Ihr email geschickt wurde."
 
-#: YSShortCodeForm.php:410
+#: YSShortCodeForm.php:414
 msgid "For Sale Items"
 msgstr "angebotene Artikel"
+
+#: YSShortCodeListing.php:104
+msgid "Filter: "
+msgstr "Filter:"
 
 #: yardsale.php:23
 msgid ""
