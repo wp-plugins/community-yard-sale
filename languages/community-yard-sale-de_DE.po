@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: community-yard-sale\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/community-yard-sale\n"
 "POT-Creation-Date: 2014-03-26 23:27:34+00:00\n"
-"PO-Revision-Date: 2014-03-26 19:36-0500\n"
+"PO-Revision-Date: 2014-03-26 19:43-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de_DE\n"
@@ -448,7 +448,7 @@ msgstr "Artikel"
 
 #: YSShortCodeListing.php:128
 msgid "(Click table cell to view on map)"
-msgstr ""
+msgstr "(Klicken Sie auf Tabellenzelle auf der Karte anzeigen)"
 
 #: yardsale.php:23
 msgid ""
