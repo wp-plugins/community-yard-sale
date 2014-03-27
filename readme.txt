@@ -63,7 +63,7 @@ both tags so that they reference the same data.
 == Changelog ==
 
 = 1.1.1 =
-* Fixed internationalization. Added German translation.
+* Fixed internationalization. Added German (de_DE) translation.
 
 = 1.1 =
 * Via setting page, can change labels like "State" to "Province" on input form
