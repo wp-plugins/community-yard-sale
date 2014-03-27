@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: community-yard-sale\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/community-yard-sale\n"
 "POT-Creation-Date: 2014-03-26 23:27:34+00:00\n"
-"PO-Revision-Date: 2014-03-26 19:43-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2014-03-27 08:59-0500\n"
+"Last-Translator: john <7grounds@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
@@ -114,7 +114,8 @@ msgstr "Optionen"
 
 #: YSPlugin.php:250
 msgid "Delete all entries associated with an event tag"
-msgstr "Lösche alle Einträge die mit dem Ereignis Kennzeichen verbunden sind"
+msgstr ""
+"Alle Einträge die mit dem Ereignis Kennzeichen verbunden sind bitte löschen."
 
 #: YSPlugin.php:274
 msgid ""
@@ -122,7 +123,8 @@ msgid ""
 "1314383685_9253)<br/>\r\n"
 "    This ID appears in the edit URL sent to the user after he registers "
 "(Example: http://&lt;page-url&gt;?ysid=<strong>1314383685_9253</strong>)"
-msgstr "Tragen Sie die Flohmarkt ID des Eintrags, denn Sie löschen,  ein"
+msgstr ""
+"Tragen Sie die Flohmarkt ID des Eintrags, denn Sie löschen möchten, ein"
 
 #: YSPlugin.php:301 YSPlugin.php:320
 msgid "MySQL error"
@@ -250,7 +252,7 @@ msgid ""
 "Note: You can tweak these values later directly in the short code after you "
 "have put the short code on a page and looked at it"
 msgstr ""
-"Bemerkung: Sie können die Werte später im Kurzcode etwa anpassen, nachdem "
+"Bemerkung: Sie können die Werte später im Kurzcode etwas anpassen, nachdem "
 "Sie die den Kurzcode auf der Seite eingetragen haben."
 
 #: YSPlugin.php:440
@@ -275,8 +277,8 @@ msgid ""
 "community yard sale events. Your pair of short codes will need to have the "
 "same event tag."
 msgstr ""
-"Geben Sie Ihrem Flohmarkt Event einen einzigartiges Kennzeichen. Damit die "
-"verschiedenen Gemeinschafts Flohmarkt Events gut auseinanderzuhalten sind. "
+"Geben Sie Ihrem Flohmarkt Event ein einzigartiges Kennzeichen. Damit die "
+"verschiedenen Gemeinschaftsflohmarkte-Events gut auseinanderzuhalten sind. "
 "Ihr Kurzcode wird das gleiche Event Kennzeichen beinhalten."
 
 #: YSPlugin.php:468
