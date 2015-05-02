@@ -374,24 +374,17 @@ class YSShortCodeForm extends YSShortCodeLoader {
                 <table cellpadding="0px" cellspacing="0px">
                     <tbody>
                     <tr>
-                        <td><label for="email"><?php echo $this->formLabels['email'] ?>*</label></td>
-                        <td><input name="email" id="email" type="text" size="30"
-                                   value="<?php echo isset($this->data['email']) ? $this->data['email'] : ''?>"
-                                   onblur="<?php echo $this->formJS ?>.fetchLatLong()"/>
-                        </td>
+                        <td><label for="email"><?php echo htmlentities($this->formLabels['email']) ?>*</label></td>
+                        <td><input name="email" id="email" type="text" size="30" value="<?php echo isset($this->data['email']) ? $this->data['email'] : ''?>" onblur="<?php echo $this->formJS ?>.fetchLatLong()"/></td>
                     </tr>
                     <tr>
-                        <td><label for="street"><?php echo $this->formLabels['street'] ?>*</label></td>
-                        <td><input name="street" id="street" type="text" size="30"
-                                   value="<?php echo isset($this->data['street']) ? $this->data['street'] : ''?>"
-                                   onblur="<?php echo $this->formJS ?>.fetchLatLong()"/></td>
+                        <td><label for="street"><?php echo htmlentities($this->formLabels['street']) ?>*</label></td>
+                        <td><input name="street" id="street" type="text" size="30" value="<?php echo isset($this->data['street']) ? $this->data['street'] : ''?>" onblur="<?php echo $this->formJS ?>.fetchLatLong()"/></td>
                     </tr>
                     <?php if (! in_array('unit', $this->omits)) { ?>
                     <tr>
-                        <td><label for="unit"><?php echo $this->formLabels['unit'] ?></label></td>
-                        <td><input name="unit" id="unit" type="text" size="5"
-                                   value="<?php echo isset($this->data['unit']) ? $this->data['unit'] : ''?>"
-                                   onblur="<?php echo $this->formJS ?>.fetchLatLong()"/></td>
+                        <td><label for="unit"><?php echo htmlentities($this->formLabels['unit']) ?></label></td>
+                        <td><input name="unit" id="unit" type="text" size="5" value="<?php echo isset($this->data['unit']) ? $this->data['unit'] : ''?>" onblur="<?php echo $this->formJS ?>.fetchLatLong()"/></td>
                     </tr>
                     <?php }
                     if (! in_array('city', $this->omits)) { ?>
@@ -415,8 +408,7 @@ class YSShortCodeForm extends YSShortCodeLoader {
                 <textarea name="listing" id="listing" rows="10"
                           cols="30"><?php echo isset($this->data['listing']) ? $this->data['listing'] : ''?></textarea>
                 <br/>
-                <input onclick="<?php echo $this->formJS ?>.fetchLatLong(); return <?php echo $this->formJS ?>.validate();"
-                       type="submit" value="Submit"/>
+                <input onclick="<?php echo $this->formJS ?>.fetchLatLong(); return <?php echo $this->formJS ?>.validate();" type="submit" value="Submit"/>
                 <?php
                 foreach ($this->omits as $omit) {
                     $value = '';
@@ -456,12 +448,7 @@ class YSShortCodeForm extends YSShortCodeLoader {
         if (empty($this->formOptions[$field])) {
             // Output a plain text field
             ?>
-            <input name="<?php echo $field ?>"
-                   id="<?php echo $field ?>"
-                   type="text"
-                   size="<?php echo $textFieldSize ?>"
-                   value="<?php echo isset($this->data[$field]) ? $this->data[$field] : ''?>"
-                   onblur="<?php echo $this->formJS ?>.fetchLatLong()"/>
+            <input name="<?php echo $field ?>" id="<?php echo $field ?>" type="text" size="<?php echo $textFieldSize ?>" value="<?php echo isset($this->data[$field]) ? $this->data[$field] : ''?>" onblur="<?php echo $this->formJS ?>.fetchLatLong()"/>
             <?php
         }
         else {

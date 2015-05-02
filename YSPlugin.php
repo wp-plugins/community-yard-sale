@@ -193,9 +193,7 @@ class YSPlugin extends YSLifeCycle {
                     <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                         <input type="hidden" name="cmd" value="_s-xclick">
                         <input type="hidden" name="hosted_button_id" value="F3FF6MP948QPW">
-                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
-                               border="0"
-                               name="submit" alt="PayPal - The safer, easier way to pay online!">
+                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
                         <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1"
                              height="1">
                     </form>
@@ -403,8 +401,7 @@ class YSPlugin extends YSLifeCycle {
                 </ul>
                 <p>
                     <label for="sc_address"><?php _e('Address', 'community-yard-sale') ?></label>
-                    <input id="sc_address" type="text" size="50"
-                           onchange="scMap.centerMapOnAddress(jQuery('#sc_address').val())"/>
+                    <input id="sc_address" type="text" size="50" onchange="scMap.centerMapOnAddress(jQuery('#sc_address').val())"/>
                     <button onclick="scMap.centerMapOnAddress(jQuery('#sc_address').val())"><?php _e('Center Map', 'community-yard-sale') ?></button>
                 </p>
 
@@ -415,12 +412,10 @@ class YSPlugin extends YSLifeCycle {
 
                 <p>
                     <label for="sc_lat"><?php _e('Latitude', 'community-yard-sale') ?></label>
-                    <input id="sc_lat" type="text" size="20" value="<?php echo $centerLat ?>" onkeyup="ysCreateShortCodes()"
-                           onchange="scMap.centerMapOnLatLng()"/>
+                    <input id="sc_lat" type="text" size="20" value="<?php echo $centerLat ?>" onkeyup="ysCreateShortCodes()" onchange="scMap.centerMapOnLatLng()"/>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <label for="sc_lng"><?php _e('Longitude', 'community-yard-sale') ?></label>
-                    <input id="sc_lng" type="text" size="20" value="<?php echo $centerLng ?>" onkeyup="ysCreateShortCodes()"
-                           onchange="scMap.centerMapOnLatLng()"/>
+                    <input id="sc_lng" type="text" size="20" value="<?php echo $centerLng ?>" onkeyup="ysCreateShortCodes()" onchange="scMap.centerMapOnLatLng()"/>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <label for="sc_zoom"><?php _e('Zoom', 'community-yard-sale') ?></label>
                     <input id="sc_zoom" type="text" size="5" value="<?php echo $zoom ?>" onchange="scMap.zoomMap()"/>
@@ -438,19 +433,15 @@ class YSPlugin extends YSLifeCycle {
                 <table cellspacing="10px">
                     <tr>
                         <td><label for="sc_form_map_height"><?php _e('Form Map Height', 'community-yard-sale') ?></label></td>
-                        <td><input id="sc_form_map_height" type="text" size="10" value="500px"
-                                   onkeyup="ysCreateShortCodes()"/></td>
+                        <td><input id="sc_form_map_height" type="text" size="10" value="500px" onkeyup="ysCreateShortCodes()"/></td>
                         <td><label for="sc_form_map_width"><?php _e('Form Map Width', 'community-yard-sale') ?></label></td>
-                        <td><input id="sc_form_map_width" type="text" size="10" value="100%"
-                                   onkeyup="ysCreateShortCodes()"/></td>
+                        <td><input id="sc_form_map_width" type="text" size="10" value="100%" onkeyup="ysCreateShortCodes()"/></td>
                     </tr>
                     <tr>
                         <td><label for="sc_listing_map_height"><?php _e('Listing Map Height', 'community-yard-sale') ?></label></td>
-                        <td><input id="sc_listing_map_height" type="text" size="10" value="500px"
-                                   onkeyup="ysCreateShortCodes()"/></td>
+                        <td><input id="sc_listing_map_height" type="text" size="10" value="500px" onkeyup="ysCreateShortCodes()"/></td>
                         <td><label for="sc_listing_map_width"><?php _e('Listing Map Width', 'community-yard-sale') ?></label></td>
-                        <td><input id="sc_listing_map_width" type="text" size="10" value="100%"
-                                   onkeyup="ysCreateShortCodes()"/></td>
+                        <td><input id="sc_listing_map_width" type="text" size="10" value="100%" onkeyup="ysCreateShortCodes()"/></td>
                     </tr>
                 </table>
             </div>

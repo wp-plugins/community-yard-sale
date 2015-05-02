@@ -62,6 +62,9 @@ both tags so that they reference the same data.
 
 == Changelog ==
 
+= 1.1.3 =
+* Avoiding WordPress-injected BR tags in form INPUT tags
+
 = 1.1.2 =
 * Adjusted spacing between filter field and Google Map on yard sale listing
 
