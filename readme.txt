@@ -62,6 +62,9 @@ both tags so that they reference the same data.
 
 == Changelog ==
 
+= 1.1.4 =
+* Avoiding WordPress-injected BR tags in form INPUT tags
+
 = 1.1.3 =
 * Avoiding WordPress-injected BR tags in form INPUT tags
 
