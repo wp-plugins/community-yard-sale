@@ -62,6 +62,9 @@ both tags so that they reference the same data.
 
 == Changelog ==
 
+= 1.1.2 =
+* Adjusted spacing between filter field and Google Map on yard sale listing
+
 = 1.1.1 =
 * Fixed internationalization. Added German (de_DE) translation.
 

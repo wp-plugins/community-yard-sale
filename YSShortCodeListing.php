@@ -100,8 +100,7 @@ class YSShortCodeListing extends YSShortCodeLoader {
         }
 
         ?>
-    <div id="filter-form"><?php _e('Filter: ', 'community-yard-sale'); ?><input name="filter" id="filter" value="" size="30" type="text"></div>
-    <p style="margin:0px">&nbsp;</p>
+    <div id="filter-form" style="margin-bottom: 5px"><?php _e('Filter: ', 'community-yard-sale'); ?><input name="filter" id="filter" value="" size="30" type="text"></div>
     <?php /*
     <div id="show-form">
         Show:
