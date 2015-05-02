@@ -405,8 +405,7 @@ class YSShortCodeForm extends YSShortCodeLoader {
                     </tbody>
                 </table>
                 <label for="listing"><?php _e('For Sale Items', 'community-yard-sale') ?>*</label><br/>
-                <textarea name="listing" id="listing" rows="10"
-                          cols="30"><?php echo isset($this->data['listing']) ? $this->data['listing'] : ''?></textarea>
+                <textarea name="listing" id="listing" rows="10" cols="30"><?php echo isset($this->data['listing']) ? $this->data['listing'] : ''?></textarea>
                 <br/>
                 <input onclick="<?php echo $this->formJS ?>.fetchLatLong(); return <?php echo $this->formJS ?>.validate();" type="submit" value="Submit"/>
                 <?php
